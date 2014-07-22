@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff" >
+
+    <ProgressBar
+        android:id="@+id/dialog_internetconnection_offline_progressbar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+        <TextView 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nincs internet kapcsolat :("/>
+
+    <LinearLayout 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+        <Button
+            android:id="@+id/dialog_internetconnection_offline_button_switchtooffline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Váltás offline módra" />
+    
+    <Button
+        android:id="@+id/dialog_internetconnection_offline_button_tryagain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Próbálkozás" />
+    
+    </LinearLayout>
+
+</LinearLayout>

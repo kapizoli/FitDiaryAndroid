@@ -1,0 +1,114 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}" >
+<LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+    
+    <EditText
+    android:id="@+id/regNameField"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentTop="true"
+    android:layout_marginLeft="21dp"
+    android:ems="10" 
+    android:hint="@string/name">
+
+    <requestFocus />
+</EditText>
+
+<EditText
+    android:id="@+id/regPasswordField"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentTop="true"
+    android:layout_marginLeft="21dp"
+    android:ems="10" 
+    android:hint="@string/password"/>
+
+<EditText
+    android:id="@+id/regConfirmPasswordField"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentTop="true"
+    android:layout_marginLeft="21dp"
+    android:ems="10" 
+    android:hint="@string/confirm_password"/>
+
+<EditText
+    android:id="@+id/regEmailField"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentTop="true"
+    android:layout_marginLeft="21dp"
+    android:ems="10" 
+    android:hint="@string/email"/>
+
+<EditText
+    android:id="@+id/regBirthdayField"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentTop="true"
+    android:layout_marginLeft="21dp"
+    android:focusable="false"
+    android:focusableInTouchMode="false"
+    android:ems="10" 
+    android:hint="@string/birthday"
+    android:onClick="showPicker"/>
+
+<!--   <EditText -->
+<!--         android:id="@+id/register_edittext_dateofbirth" -->
+<!--         android:layout_width="match_parent" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         android:hint="Születési idő" -->
+<!--         android:onClick="onClickHandler" -->
+<!--         android:focusable="false" -->
+<!--         android:focusableInTouchMode="false" -->
+<!-- 		style="@style/CustomEditText"  -->
+<!-- 		android:singleLine="true"/> -->
+
+<!-- <EditText -->
+<!--     android:id="@+id/regSexField" -->
+<!--     android:layout_width="wrap_content" -->
+<!--     android:layout_height="wrap_content" -->
+<!--     android:layout_alignParentLeft="true" -->
+<!--     android:layout_alignParentTop="true" -->
+<!--     android:layout_marginLeft="21dp" -->
+<!--     android:ems="10"  -->
+<!--     android:hint="@string/sex"/> -->
+<Spinner
+        android:id="@+id/regSexSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/register_spinner_sex"
+        android:layout_marginLeft="21dp"
+		/>
+
+    <Button
+            android:id="@+id/regDoneBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="8dp"
+            android:text="@string/registration" />
+    
+    <Button
+            android:id="@+id/regUndoBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="8dp"
+            android:text="@string/cancel" />
+    
+    </LinearLayout>
+</RelativeLayout>
