@@ -108,12 +108,12 @@ public class RegistrationActivity extends android.support.v4.app.FragmentActivit
 													.show();
 											Log.e("REG SCREEN",
 													"TOAST SHOWN SUCCESSFULLY");
-										}/* else if (actualUser.getId() == 0) {
+										} else if (actualUser.getId() == -1) {
 											new ErrorToast(
 													RegistrationActivity.this,
 													"A megadott email cím már használatban van!")
 													.show();
-										}*/
+										}
 										else {
 											Intent newIntent = new Intent(
 													RegistrationActivity.this,

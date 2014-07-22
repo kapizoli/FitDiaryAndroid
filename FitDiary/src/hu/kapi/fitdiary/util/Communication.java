@@ -114,6 +114,7 @@ public class Communication {
             if (data.equals("FAILED - EMAIL ALREADY USED")) {
             	Log.d("Communication", "if FAILED - EMAIL ALREADY USED");
             	//throw new emailalreadyusedexception
+            	return new User(-1);
             }
             if (data.equals("FAILED")) {
             	Log.d("Communication", "if FAILED");
