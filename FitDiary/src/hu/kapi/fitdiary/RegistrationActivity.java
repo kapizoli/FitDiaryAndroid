@@ -49,7 +49,7 @@ public class RegistrationActivity extends android.support.v4.app.FragmentActivit
 						|| "".equals(confirmPassword.getText().toString())
 						|| "".equals(email.getText().toString())
 						|| "".equals(birthday.getText().toString())
-						/*|| "".equals(sex.getse getText().toString())*/) {
+					) {
 
 					new ErrorToast(
 							RegistrationActivity.this,
