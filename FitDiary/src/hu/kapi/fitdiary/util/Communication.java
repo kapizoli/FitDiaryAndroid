@@ -61,10 +61,10 @@ public class Communication {
         return data;
     }
 	
-	public User authenticationUser(String name, String password) {
+	public User authenticationUser(String email, String password) {
 		HashMap<String, String> post = new HashMap<String, String>();
         post.put("action", "GET");
-        post.put("NickName", name);
+        post.put("Email", email);
         post.put("Password", password);
 
         try {
@@ -76,14 +76,14 @@ public class Communication {
             int user_id = Integer.parseInt(jsonObject.getString("id"));
             String nick_name2 = jsonObject.getString("nick_name");
             String password2 = jsonObject.getString("password");
-            String email = jsonObject.getString("email");
+            String email2 = jsonObject.getString("email");
             int sex = Integer.parseInt(jsonObject.getString("sex"));
             String b = jsonObject.getString("birthday");
             Date birthday = dateformat.parse(b);
             String u = jsonObject.getString("last_updated");
             Date lastUpdated = dateformat.parse(u);
 
-            User newUser = new User(user_id, nick_name2, password2, email, sex, birthday, lastUpdated);
+            User newUser = new User(user_id, nick_name2, password2, email2, sex, birthday, lastUpdated);
             Log.d("Communication", "logged user: "+newUser.toString());
             return newUser;
         } catch (Exception e) {

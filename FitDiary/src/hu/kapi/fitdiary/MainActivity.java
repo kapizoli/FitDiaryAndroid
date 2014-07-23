@@ -15,14 +15,14 @@ import android.widget.EditText;
 
 public class MainActivity extends Activity {
 Button loginBtn, regBtn, loginWithoutRegBtn;
-EditText name, password;
+EditText email, password;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		name = (EditText) findViewById(R.id.loginName);
+		email = (EditText) findViewById(R.id.loginName);
 		password = (EditText) findViewById(R.id.loginPass);
 
 		loginBtn = (Button) findViewById(R.id.loginBtn);
@@ -30,7 +30,7 @@ EditText name, password;
 			
 			@Override
 			public void onClick(View v) {
-				Log.d("mainactivity", name.getText().toString());
+				Log.d("mainactivity", email.getText().toString());
 				Log.d("mainactivity", password.getText().toString());
 				
 				Runnable r = new Runnable() {
@@ -39,7 +39,7 @@ EditText name, password;
 	                public void run() {
 
 	                    final User actualUser = Session.getInstance().getActualCommunication()
-	                            .authenticationUser(name.getText().toString(), password.getText().toString());
+	                            .authenticationUser(email.getText().toString(), password.getText().toString());
 
 	                    if (actualUser != null) {
 	                        // Ha a nĂ©v Ă©s jelszĂł pĂˇros helyes
