@@ -55,5 +55,8 @@
     <string name="registration">Regisztráció</string>
     <string name="login_without_registration">Belépés regisztráció nélkül</string>
     <string name="cancel">Mégsem</string>
+    <string name="action_add">Hozzáadás</string>
+    <string name="action_graph">Grafikon</string>
+    <string name="action_table">Táblázat</string>
 
 </resources>

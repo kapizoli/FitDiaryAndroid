@@ -796,10 +796,13 @@ containing a value of this type.
         public static final int abs__tab_unselected_pressed_holo=0x7f020054;
         public static final int action_about=0x7f020055;
         public static final int action_settings=0x7f020056;
-        public static final int collections_cloud=0x7f020057;
-        public static final int drawer_shadow=0x7f020058;
-        public static final int ic_drawer=0x7f020059;
-        public static final int ic_launcher=0x7f02005a;
+        public static final int add=0x7f020057;
+        public static final int bars=0x7f020058;
+        public static final int collections_cloud=0x7f020059;
+        public static final int drawer_shadow=0x7f02005a;
+        public static final int ic_drawer=0x7f02005b;
+        public static final int ic_launcher=0x7f02005c;
+        public static final int table=0x7f02005d;
     }
     public static final class id {
         public static final int abs__action_bar=0x7f050022;
@@ -831,6 +834,7 @@ containing a value of this type.
         public static final int abs__title=0x7f05001b;
         public static final int abs__titleDivider=0x7f05001c;
         public static final int abs__up=0x7f05000b;
+        public static final int action_add=0x7f050042;
         public static final int content_frame=0x7f05003b;
         public static final int dialog_internetconnection_offline_button_switchtooffline=0x7f050035;
         public static final int dialog_internetconnection_offline_button_tryagain=0x7f050036;
@@ -845,7 +849,6 @@ containing a value of this type.
         public static final int loginBtn=0x7f050029;
         public static final int loginName=0x7f050027;
         public static final int loginPass=0x7f050028;
-        public static final int menu_settings=0x7f050042;
         public static final int normal=0x7f050001;
         public static final int pagerTabStrip=0x7f050041;
         public static final int regBirthdayField=0x7f050030;
@@ -918,6 +921,7 @@ containing a value of this type.
     }
     public static final class menu {
         public static final int activity_main=0x7f0d0000;
+        public static final int add_menu=0x7f0d0001;
     }
     public static final class string {
         public static final int Fragment1=0x7f0a000d;
@@ -953,6 +957,9 @@ containing a value of this type.
         /**  Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
         public static final int abs__shareactionprovider_share_with_application=0x7f0a0009;
+        public static final int action_add=0x7f0a001f;
+        public static final int action_graph=0x7f0a0020;
+        public static final int action_table=0x7f0a0021;
         public static final int app_name=0x7f0a000a;
         public static final int birthday=0x7f0a0019;
         public static final int cancel=0x7f0a001e;

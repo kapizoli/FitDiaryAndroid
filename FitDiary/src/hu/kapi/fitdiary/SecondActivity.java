@@ -1,6 +1,7 @@
 package hu.kapi.fitdiary;
 
 import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import hu.kapi.fitdiary.R;
 import hu.kapi.fitdiary.fragments.BuyTrainingPlanFragment;
@@ -51,6 +52,8 @@ public class SecondActivity extends SherlockFragmentActivity {
 	private CharSequence mTitle;
 	String TAG;
 	String actualTitle;
+	MenuItem addItem/*, graphItem, tableItem*/;
+	public Fragment actualFragment;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -58,6 +61,8 @@ public class SecondActivity extends SherlockFragmentActivity {
 		// Get the view from drawer_main.xml
 		setContentView(R.layout.drawer_main);
 
+		actualFragment = inputFragment;
+		
 		Resources res = getResources();
 		TAG = this.getClass().getName();
 
@@ -133,17 +138,30 @@ public class SecondActivity extends SherlockFragmentActivity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-
-		if (item.getItemId() == android.R.id.home) {
-
+		switch (item.getItemId()) {
+		case R.id.action_add:
+			addItemSelected();
+			Log.d("asd", "add");
+			break;
+		case android.R.id.home:
 			if (mDrawerLayout.isDrawerOpen(mDrawerList)) {
 				mDrawerLayout.closeDrawer(mDrawerList);
 			} else {
 				mDrawerLayout.openDrawer(mDrawerList);
 			}
-		}
+			break;
 
+		default:
+			break;
+		}
+		
 		return super.onOptionsItemSelected(item);
+	}
+
+	private void addItemSelected() {
+		Log.d("asd", actualFragment.getClass().getName());
+		//TODO:az aktuÃ¡lis fragment alapjÃ¡n megmondani h mit csinÃ¡ljon ha rÃ¡nyomunk
+		
 	}
 
 	// ListView click listener in the navigation drawer
@@ -163,44 +181,135 @@ public class SecondActivity extends SherlockFragmentActivity {
 		switch (position) {
 		case 0:
 			ft.replace(R.id.content_frame, inputFragment);
+			actualFragment = inputFragment;
+			if (addItem != null) {
+				addItem.setVisible(true);
+			}
+//			if (graphItem != null) {
+//				graphItem.setVisible(false);
+//			}
+//			if (tableItem != null) {
+//				tableItem.setVisible(false);
+//			}
 			Log.d(TAG, "Bevitel selected");
 			break;
 		case 1:
 			ft.replace(R.id.content_frame, statistcsFragment);
+			actualFragment = statistcsFragment;
+			if (addItem != null) {
+				addItem.setVisible(false);
+			}
+//			if (graphItem != null) {
+//				graphItem.setVisible(false);
+//			}
+//			if (tableItem != null) {
+//				tableItem.setVisible(true);
+//			}
 			Log.d(TAG, "Statisztika selected");
 			break;
 		case 2:
 			ft.replace(R.id.content_frame, trainingPlanFragment);
-			Log.d(TAG, "Edzésterv selected");
+			actualFragment = trainingPlanFragment;
+			if (addItem != null) {
+				addItem.setVisible(false);
+			}
+//			if (graphItem != null) {
+//				graphItem.setVisible(false);
+//			}
+//			if (tableItem != null) {
+//				tableItem.setVisible(false);
+//			}
+			Log.d(TAG, "Edzï¿½sterv selected");
 			break;
 		case 3:
 			ft.replace(R.id.content_frame, buyTrainingPlanFragment);
-			Log.d(TAG, "Edzésterv vásárlás selected");
+			actualFragment = buyTrainingPlanFragment;
+			if (addItem != null) {
+				addItem.setVisible(false);
+			}
+//			if (graphItem != null) {
+//				graphItem.setVisible(false);
+//			}
+//			if (tableItem != null) {
+//				tableItem.setVisible(false);
+//			}
+			Log.d(TAG, "Edzï¿½sterv vï¿½sï¿½rlï¿½s selected");
 			break;
 		case 4:
 			ft.replace(R.id.content_frame, profileFragment);
+			actualFragment = profileFragment;
+			if (addItem != null) {
+				addItem.setVisible(false);
+			}
+//			if (graphItem != null) {
+//				graphItem.setVisible(false);
+//			}
+//			if (tableItem != null) {
+//				tableItem.setVisible(false);
+//			}
 			Log.d(TAG, "Profil selected");
 			break;
 		case 5:
 			ft.replace(R.id.content_frame, remindersFragment);
-			Log.d(TAG, "Emlékeztetõk selected");
+			actualFragment = remindersFragment;
+			if (addItem != null) {
+				addItem.setVisible(true);
+			}
+//			if (graphItem != null) {
+//				graphItem.setVisible(false);
+//			}
+//			if (tableItem != null) {
+//				tableItem.setVisible(false);
+//			}
+			Log.d(TAG, "Emlï¿½keztetï¿½k selected");
 			break;
 		case 6:
 			ft.replace(R.id.content_frame, infosFragment);
-			Log.d(TAG, "Infók selected");
+			actualFragment = infosFragment;
+			if (addItem != null) {
+				addItem.setVisible(false);
+			}
+//			if (graphItem != null) {
+//				graphItem.setVisible(false);
+//			}
+//			if (tableItem != null) {
+//				tableItem.setVisible(false);
+//			}
+			Log.d(TAG, "Infï¿½k selected");
 			break;
 		case 7:
 			ft.replace(R.id.content_frame, recipesFragment);
+			actualFragment = recipesFragment;
+			if (addItem != null) {
+				addItem.setVisible(true);
+			}
+//			if (graphItem != null) {
+//				graphItem.setVisible(false);
+//			}
+//			if (tableItem != null) {
+//				tableItem.setVisible(false);
+//			}
 			Log.d(TAG, "Receptek selected");
 			break;
 		case 8:
 			ft.replace(R.id.content_frame, tipsFragment);
+			actualFragment = tipsFragment;
+			if (addItem != null) {
+				addItem.setVisible(false);
+			}
+//			if (graphItem != null) {
+//				graphItem.setVisible(false);
+//			}
+//			if (tableItem != null) {
+//				tableItem.setVisible(false);
+//			}
 			Log.d(TAG, "Tippek selected");
 			break;
 		case 9:
 			Intent i = new Intent(SecondActivity.this, MainActivity.class);
+			//TODO: session nullÃ¡zÃ¡sa
 			startActivity(i);
-			Log.d(TAG, "Kilépés selected");
+			Log.d(TAG, "Kilï¿½pï¿½s selected");
 			break;
 		default:
 			Log.d(TAG, "Not gonna happend :D");
@@ -249,4 +358,17 @@ public class SecondActivity extends SherlockFragmentActivity {
 			super.onBackPressed();
 		}
 	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		com.actionbarsherlock.view.MenuInflater inflater = getSupportMenuInflater();
+		   inflater.inflate(R.menu.activity_main, (com.actionbarsherlock.view.Menu) menu);
+		   this.addItem = menu.findItem(R.id.action_add);
+//		   this.graphItem = menu.findItem(R.id.action_graph);
+//		   graphItem.setVisible(false);
+//		   this.tableItem = menu.findItem(R.id.action_table);
+//		   tableItem.setVisible(false);
+		   return super.onCreateOptionsMenu(menu);
+	}
+	
 }
