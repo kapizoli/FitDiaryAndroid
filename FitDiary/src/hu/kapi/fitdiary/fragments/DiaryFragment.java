@@ -1,10 +1,11 @@
 package hu.kapi.fitdiary.fragments;
 
 import java.lang.reflect.Field;
+
 import com.actionbarsherlock.app.SherlockFragment;
+
+import hu.kapi.fitdiary.DiaryViewPagerAdapter;
 import hu.kapi.fitdiary.R;
-import hu.kapi.fitdiary.StatisticsViewPagerAdapter;
-import hu.kapi.fitdiary.R.id;
 import hu.kapi.fitdiary.R.layout;
 
 import android.content.Context;
@@ -15,22 +16,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class StatisticsFragment extends SherlockFragment {
-
+public class DiaryFragment extends SherlockFragment {
 	Context mContext;
-	
-	public StatisticsFragment(Context context) {
+	 
+	public DiaryFragment(Context context) {
 		mContext = context;
 	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.viewpager_main, container, false);
+		View view = inflater.inflate(R.layout.fragment_diary, container, false);
 		// Locate the ViewPager in viewpager_main.xml
-		ViewPager mViewPager = (ViewPager) view.findViewById(R.id.viewPager);
+		ViewPager mViewPager = (ViewPager) view.findViewById(R.id.diaryViewPager);
 		// Set the ViewPagerAdapter into ViewPager
-		mViewPager.setAdapter(new StatisticsViewPagerAdapter(getChildFragmentManager(), mContext ));
+		mViewPager.setAdapter(new DiaryViewPagerAdapter(getChildFragmentManager(), mContext));
+		mViewPager.setCurrentItem(1);
 		return view;
 	}
 
@@ -48,4 +49,5 @@ public class StatisticsFragment extends SherlockFragment {
 			throw new RuntimeException(e);
 		}
 	}
+	 
 }

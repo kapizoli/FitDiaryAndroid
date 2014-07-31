@@ -15,9 +15,11 @@ public final class R {
         public static final int slide_right_out=0x7f040003;
     }
     public static final class array {
+        public static final int input_items=0x7f0c0002;
         public static final int list_items=0x7f0c0000;
         public static final int list_subtitles=0x7f0c0001;
-        public static final int register_spinner_sex=0x7f0c0002;
+        public static final int register_spinner_sex=0x7f0c0004;
+        public static final int statistics_items=0x7f0c0003;
     }
     public static final class attr {
         /**  Specified if we are forcing an action item overflow menu. 
@@ -802,7 +804,9 @@ containing a value of this type.
         public static final int drawer_shadow=0x7f02005a;
         public static final int ic_drawer=0x7f02005b;
         public static final int ic_launcher=0x7f02005c;
-        public static final int table=0x7f02005d;
+        public static final int left=0x7f02005d;
+        public static final int right=0x7f02005e;
+        public static final int table=0x7f02005f;
     }
     public static final class id {
         public static final int abs__action_bar=0x7f050022;
@@ -834,11 +838,13 @@ containing a value of this type.
         public static final int abs__title=0x7f05001b;
         public static final int abs__titleDivider=0x7f05001c;
         public static final int abs__up=0x7f05000b;
-        public static final int action_add=0x7f050042;
+        public static final int action_add=0x7f050044;
         public static final int content_frame=0x7f05003b;
         public static final int dialog_internetconnection_offline_button_switchtooffline=0x7f050035;
         public static final int dialog_internetconnection_offline_button_tryagain=0x7f050036;
         public static final int dialog_internetconnection_offline_progressbar=0x7f050034;
+        public static final int diaryPagerTabStrip=0x7f05003e;
+        public static final int diaryViewPager=0x7f05003d;
         public static final int disableHome=0x7f050009;
         public static final int drawer_layout=0x7f05003a;
         public static final int homeAsUp=0x7f050006;
@@ -850,7 +856,7 @@ containing a value of this type.
         public static final int loginName=0x7f050027;
         public static final int loginPass=0x7f050028;
         public static final int normal=0x7f050001;
-        public static final int pagerTabStrip=0x7f050041;
+        public static final int pagerTabStrip=0x7f050043;
         public static final int regBirthdayField=0x7f050030;
         public static final int regBtn=0x7f05002a;
         public static final int regConfirmPasswordField=0x7f05002e;
@@ -866,11 +872,11 @@ containing a value of this type.
         public static final int subtitle=0x7f050039;
         public static final int tabMode=0x7f050003;
         public static final int title=0x7f050038;
-        public static final int toast_done_textview=0x7f05003d;
-        public static final int toast_error_textview=0x7f05003e;
-        public static final int toast_info_textview=0x7f05003f;
+        public static final int toast_done_textview=0x7f05003f;
+        public static final int toast_error_textview=0x7f050040;
+        public static final int toast_info_textview=0x7f050041;
         public static final int useLogo=0x7f050004;
-        public static final int viewPager=0x7f050040;
+        public static final int viewPager=0x7f050042;
         public static final int wrap_content=0x7f050000;
     }
     public static final class integer {
@@ -900,24 +906,27 @@ containing a value of this type.
         public static final int activity_main=0x7f030014;
         public static final int activity_registration=0x7f030015;
         public static final int dialog_internetconnection_offline=0x7f030016;
-        public static final int drawer_list_item=0x7f030017;
-        public static final int drawer_main=0x7f030018;
-        public static final int fragment_buy_training_plan=0x7f030019;
-        public static final int fragment_infos=0x7f03001a;
-        public static final int fragment_input=0x7f03001b;
-        public static final int fragment_profile=0x7f03001c;
-        public static final int fragment_recipes=0x7f03001d;
-        public static final int fragment_reminders=0x7f03001e;
-        public static final int fragment_tips=0x7f03001f;
-        public static final int fragment_training_plan=0x7f030020;
-        public static final int fragmenttab1=0x7f030021;
-        public static final int fragmenttab2=0x7f030022;
-        public static final int sherlock_spinner_dropdown_item=0x7f030023;
-        public static final int sherlock_spinner_item=0x7f030024;
-        public static final int toast_done=0x7f030025;
-        public static final int toast_error=0x7f030026;
-        public static final int toast_info=0x7f030027;
-        public static final int viewpager_main=0x7f030028;
+        public static final int diaryfragmenttab1=0x7f030017;
+        public static final int diaryfragmenttab2=0x7f030018;
+        public static final int diaryfragmenttab3=0x7f030019;
+        public static final int drawer_list_item=0x7f03001a;
+        public static final int drawer_main=0x7f03001b;
+        public static final int fragment_buy_training_plan=0x7f03001c;
+        public static final int fragment_diary=0x7f03001d;
+        public static final int fragment_infos=0x7f03001e;
+        public static final int fragment_profile=0x7f03001f;
+        public static final int fragment_recipes=0x7f030020;
+        public static final int fragment_reminders=0x7f030021;
+        public static final int fragment_tips=0x7f030022;
+        public static final int fragment_training_plan=0x7f030023;
+        public static final int sherlock_spinner_dropdown_item=0x7f030024;
+        public static final int sherlock_spinner_item=0x7f030025;
+        public static final int statisticsfragmenttab1=0x7f030026;
+        public static final int statisticsfragmenttab2=0x7f030027;
+        public static final int toast_done=0x7f030028;
+        public static final int toast_error=0x7f030029;
+        public static final int toast_info=0x7f03002a;
+        public static final int viewpager_main=0x7f03002b;
     }
     public static final class menu {
         public static final int activity_main=0x7f0d0000;
@@ -968,6 +977,7 @@ containing a value of this type.
         public static final int drawer_open=0x7f0a0010;
         public static final int email=0x7f0a0018;
         public static final int hello_world=0x7f0a000b;
+        public static final int language=0x7f0a0022;
         public static final int login=0x7f0a001b;
         public static final int login_without_registration=0x7f0a001d;
         public static final int male=0x7f0a0013;
@@ -978,6 +988,9 @@ containing a value of this type.
         public static final int sex=0x7f0a001a;
         public static final int title_activity_main=0x7f0a0012;
         public static final int title_activity_registration=0x7f0a0014;
+        public static final int today=0x7f0a0024;
+        public static final int tomorrow=0x7f0a0025;
+        public static final int yesterday=0x7f0a0023;
     }
     public static final class style {
         public static final int AppTheme=0x7f0b0058;

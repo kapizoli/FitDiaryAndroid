@@ -10,9 +10,10 @@ import hu.kapi.fitdiary.fragments.ProfileFragment;
 import hu.kapi.fitdiary.fragments.RecipesFragment;
 import hu.kapi.fitdiary.fragments.RemindersFragment;
 import hu.kapi.fitdiary.fragments.StatisticsFragment;
-import hu.kapi.fitdiary.fragments.InputFragment;
+import hu.kapi.fitdiary.fragments.DiaryFragment;
 import hu.kapi.fitdiary.fragments.TipsFragment;
 import hu.kapi.fitdiary.fragments.TrainingPlanFragment;
+import hu.kapi.fitdiary.util.Session;
 
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -39,8 +40,8 @@ public class SecondActivity extends SherlockFragmentActivity {
 	String[] title;
 	String[] subtitle;
 	int[] icon;
-	Fragment inputFragment = new InputFragment();
-	Fragment statistcsFragment = new StatisticsFragment();
+	Fragment inputFragment = new DiaryFragment(this);
+	Fragment statistcsFragment = new StatisticsFragment(this);
 	Fragment trainingPlanFragment = new TrainingPlanFragment();
 	Fragment buyTrainingPlanFragment = new BuyTrainingPlanFragment();
 	Fragment profileFragment = new ProfileFragment();
@@ -53,15 +54,14 @@ public class SecondActivity extends SherlockFragmentActivity {
 	String TAG;
 	String actualTitle;
 	MenuItem addItem/*, graphItem, tableItem*/;
-	public Fragment actualFragment;
-
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		// Get the view from drawer_main.xml
 		setContentView(R.layout.drawer_main);
 
-		actualFragment = inputFragment;
+		Session.getInstance().actualFragment = inputFragment;
 		
 		Resources res = getResources();
 		TAG = this.getClass().getName();
@@ -159,7 +159,7 @@ public class SecondActivity extends SherlockFragmentActivity {
 	}
 
 	private void addItemSelected() {
-		Log.d("asd", actualFragment.getClass().getName());
+		Log.d("asd", Session.getInstance().actualFragment.getClass().getName());
 		//TODO:az aktuális fragment alapján megmondani h mit csináljon ha rányomunk
 		
 	}
@@ -181,7 +181,7 @@ public class SecondActivity extends SherlockFragmentActivity {
 		switch (position) {
 		case 0:
 			ft.replace(R.id.content_frame, inputFragment);
-			actualFragment = inputFragment;
+			Session.getInstance().actualFragment = inputFragment;
 			if (addItem != null) {
 				addItem.setVisible(true);
 			}
@@ -195,7 +195,7 @@ public class SecondActivity extends SherlockFragmentActivity {
 			break;
 		case 1:
 			ft.replace(R.id.content_frame, statistcsFragment);
-			actualFragment = statistcsFragment;
+			Session.getInstance().actualFragment = statistcsFragment;
 			if (addItem != null) {
 				addItem.setVisible(false);
 			}
@@ -209,7 +209,7 @@ public class SecondActivity extends SherlockFragmentActivity {
 			break;
 		case 2:
 			ft.replace(R.id.content_frame, trainingPlanFragment);
-			actualFragment = trainingPlanFragment;
+			Session.getInstance().actualFragment = trainingPlanFragment;
 			if (addItem != null) {
 				addItem.setVisible(false);
 			}
@@ -223,7 +223,7 @@ public class SecondActivity extends SherlockFragmentActivity {
 			break;
 		case 3:
 			ft.replace(R.id.content_frame, buyTrainingPlanFragment);
-			actualFragment = buyTrainingPlanFragment;
+			Session.getInstance().actualFragment = buyTrainingPlanFragment;
 			if (addItem != null) {
 				addItem.setVisible(false);
 			}
@@ -237,7 +237,7 @@ public class SecondActivity extends SherlockFragmentActivity {
 			break;
 		case 4:
 			ft.replace(R.id.content_frame, profileFragment);
-			actualFragment = profileFragment;
+			Session.getInstance().actualFragment = profileFragment;
 			if (addItem != null) {
 				addItem.setVisible(false);
 			}
@@ -251,7 +251,7 @@ public class SecondActivity extends SherlockFragmentActivity {
 			break;
 		case 5:
 			ft.replace(R.id.content_frame, remindersFragment);
-			actualFragment = remindersFragment;
+			Session.getInstance().actualFragment = remindersFragment;
 			if (addItem != null) {
 				addItem.setVisible(true);
 			}
@@ -265,7 +265,7 @@ public class SecondActivity extends SherlockFragmentActivity {
 			break;
 		case 6:
 			ft.replace(R.id.content_frame, infosFragment);
-			actualFragment = infosFragment;
+			Session.getInstance().actualFragment = infosFragment;
 			if (addItem != null) {
 				addItem.setVisible(false);
 			}
@@ -279,7 +279,7 @@ public class SecondActivity extends SherlockFragmentActivity {
 			break;
 		case 7:
 			ft.replace(R.id.content_frame, recipesFragment);
-			actualFragment = recipesFragment;
+			Session.getInstance().actualFragment = recipesFragment;
 			if (addItem != null) {
 				addItem.setVisible(true);
 			}
@@ -293,7 +293,7 @@ public class SecondActivity extends SherlockFragmentActivity {
 			break;
 		case 8:
 			ft.replace(R.id.content_frame, tipsFragment);
-			actualFragment = tipsFragment;
+			Session.getInstance().actualFragment = tipsFragment;
 			if (addItem != null) {
 				addItem.setVisible(false);
 			}

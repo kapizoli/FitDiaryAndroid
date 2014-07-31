@@ -12,7 +12,7 @@
     <string name="title_activity_main">MainActivity</string>
 
     <string-array name="list_items">
-        <item>Bevitel</item>
+        <item>Napló</item>
         <item>Statisztika</item>
         <item>Edzésterv</item>
         <item>Edzésterv vásárlás</item>
@@ -34,6 +34,15 @@
         <item>Receptek subtitle</item>
         <item>Tippek subtitle</item>
         <item>Kilépés subtitle</item>
+    </string-array>
+    <string-array name="input_items">
+        <item>Edzés</item>
+        <item>Táplálék</item>
+        <item>Mérés</item>
+    </string-array>
+    <string-array name="statistics_items">
+        <item>Grafikon</item>
+        <item>Táblázat</item>
     </string-array>
     
     <string-array name="register_spinner_sex">
@@ -58,5 +67,10 @@
     <string name="action_add">Hozzáadás</string>
     <string name="action_graph">Grafikon</string>
     <string name="action_table">Táblázat</string>
+    
+    <string name="language">hun</string>
+    <string name="yesterday">Tegnap</string>
+    <string name="today">Ma</string>
+    <string name="tomorrow">Holnap</string>
 
 </resources>

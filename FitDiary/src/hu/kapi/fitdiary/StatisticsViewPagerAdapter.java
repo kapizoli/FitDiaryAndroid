@@ -2,32 +2,37 @@ package hu.kapi.fitdiary;
 
 import hu.kapi.fitdiary.fragments.StatisticsFragmentTab1;
 import hu.kapi.fitdiary.fragments.StatisticsFragmentTab2;
+import hu.kapi.fitdiary.util.Session;
+import android.content.Context;
+import android.content.res.Resources;
+import android.content.res.Configuration;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-public class ViewPagerAdapter extends FragmentPagerAdapter {
+public class StatisticsViewPagerAdapter extends FragmentPagerAdapter {
 
 	// Declare the number of ViewPager pages
 	final int PAGE_COUNT = 2;
-	private String titles[] = new String[] { "Grafikon", "Táblázat" };
+	Context mContext;
+	private String titles[];// = new String[] { "Grafikon", "Táblázat" };
 
-	public ViewPagerAdapter(FragmentManager fm) {
+	public StatisticsViewPagerAdapter(FragmentManager fm, Context context) {
 		super(fm);
+		mContext = context;
+		titles = mContext.getResources().getStringArray(R.array.statistics_items);
 	}
 
 	@Override
 	public Fragment getItem(int position) {
 		switch (position) {
-
-			// Open FragmentTab1.java
 		case 0:
 			StatisticsFragmentTab1 fragmenttab1 = new StatisticsFragmentTab1();
+			Session.getInstance().actualFragment = fragmenttab1;
 			return fragmenttab1;
-
-			// Open FragmentTab2.java
 		case 1:
 			StatisticsFragmentTab2 fragmenttab2 = new StatisticsFragmentTab2();
+			Session.getInstance().actualFragment = fragmenttab2;
 			return fragmenttab2;
 		}
 		return null;

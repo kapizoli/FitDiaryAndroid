@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.TimeZone;
 
 import android.app.ProgressDialog;
+import android.support.v4.app.Fragment;
 import android.widget.Toast;
 
 public class Session {
@@ -17,6 +18,7 @@ public class Session {
 	public ProgressDialog progressDialog = null;
 	public static Toast lastToast = null;
 	static final String DATEFORMAT = "yyyy-MM-dd HH:mm:ss";
+	public static Fragment actualFragment;
 
 	protected Session() {
 		this.communication = new Communication();
