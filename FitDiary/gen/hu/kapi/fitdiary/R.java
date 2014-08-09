@@ -971,11 +971,14 @@ containing a value of this type.
         public static final int action_table=0x7f0a0021;
         public static final int app_name=0x7f0a000a;
         public static final int birthday=0x7f0a0019;
+        public static final int calorie=0x7f0a0026;
         public static final int cancel=0x7f0a001e;
+        public static final int carbohidrate=0x7f0a0028;
         public static final int confirm_password=0x7f0a0017;
         public static final int drawer_close=0x7f0a0011;
         public static final int drawer_open=0x7f0a0010;
         public static final int email=0x7f0a0018;
+        public static final int fat=0x7f0a0027;
         public static final int hello_world=0x7f0a000b;
         public static final int language=0x7f0a0022;
         public static final int login=0x7f0a001b;
@@ -984,6 +987,7 @@ containing a value of this type.
         public static final int menu_settings=0x7f0a000c;
         public static final int name=0x7f0a0015;
         public static final int password=0x7f0a0016;
+        public static final int protein=0x7f0a0029;
         public static final int registration=0x7f0a001c;
         public static final int sex=0x7f0a001a;
         public static final int title_activity_main=0x7f0a0012;

@@ -72,5 +72,10 @@
     <string name="yesterday">Tegnap</string>
     <string name="today">Ma</string>
     <string name="tomorrow">Holnap</string>
+    
+    <string name="calorie">Kalória</string>
+    <string name="fat">Zsír</string>
+    <string name="carbohidrate">Szénhidrát</string>
+    <string name="protein">Fehérje</string>
 
 </resources>
