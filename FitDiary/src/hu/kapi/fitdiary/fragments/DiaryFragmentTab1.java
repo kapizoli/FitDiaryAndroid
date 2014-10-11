@@ -1,16 +1,21 @@
 package hu.kapi.fitdiary.fragments;
 
 import hu.kapi.fitdiary.R;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 
 import com.actionbarsherlock.app.SherlockFragment;
-import hu.kapi.fitdiary.CalorieWidget;
 
-import hu.kapi.fitdiary.DateSlider;
+import hu.kapi.fitdiary.util.Session;
+import hu.kapi.fitdiary.widgets.CalorieWidget;
+import hu.kapi.fitdiary.widgets.DateSlider;
+import hu.kapi.fitdiary.widgets.DiaryItem;
 
 public class DiaryFragmentTab1 extends SherlockFragment{
 	DateSlider ds;
@@ -29,6 +34,8 @@ public class DiaryFragmentTab1 extends SherlockFragment{
 		
 		CalorieWidget cw = new CalorieWidget(getActivity());
 		rootView.addView(cw);
+		
+		
 		
         return rootView;
 	}

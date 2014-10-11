@@ -18,7 +18,7 @@ public class Session {
 	public ProgressDialog progressDialog = null;
 	public static Toast lastToast = null;
 	static final String DATEFORMAT = "yyyy-MM-dd HH:mm:ss";
-	public static Fragment actualFragment;
+	public Fragment actualFragment;
 
 	protected Session() {
 		this.communication = new Communication();

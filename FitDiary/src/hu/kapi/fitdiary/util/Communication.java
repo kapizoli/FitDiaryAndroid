@@ -1,6 +1,6 @@
 package hu.kapi.fitdiary.util;
 
-import hu.kapi.fitdiary.RegistrationActivity;
+import hu.kapi.fitdiary.activites.RegistrationActivity;
 
 import java.io.IOException;
 import java.sql.Timestamp;
@@ -34,7 +34,7 @@ import android.util.Log;
 public class Communication {
 
 	HttpClient httpclient;
-	final String MainURL = "http://fitdiary.netne.net/";
+	final String MainURL = "http://fitdiary.esy.es/";
 	 SimpleDateFormat dateformat = new SimpleDateFormat(
              "yyyy-MM-dd hh:mm:ss");
 	 SimpleDateFormat dateformat2 = new SimpleDateFormat(

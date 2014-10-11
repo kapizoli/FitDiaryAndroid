@@ -9,10 +9,12 @@ package hu.kapi.fitdiary;
 
 public final class R {
     public static final class anim {
-        public static final int slide_left_in=0x7f040000;
-        public static final int slide_left_out=0x7f040001;
-        public static final int slide_right_in=0x7f040002;
-        public static final int slide_right_out=0x7f040003;
+        public static final int slide_down=0x7f040000;
+        public static final int slide_left_in=0x7f040001;
+        public static final int slide_left_out=0x7f040002;
+        public static final int slide_right_in=0x7f040003;
+        public static final int slide_right_out=0x7f040004;
+        public static final int slide_up=0x7f040005;
     }
     public static final class array {
         public static final int input_items=0x7f0c0002;
@@ -838,15 +840,27 @@ containing a value of this type.
         public static final int abs__title=0x7f05001b;
         public static final int abs__titleDivider=0x7f05001c;
         public static final int abs__up=0x7f05000b;
-        public static final int action_add=0x7f050044;
+        public static final int action_add=0x7f050074;
         public static final int content_frame=0x7f05003b;
         public static final int dialog_internetconnection_offline_button_switchtooffline=0x7f050035;
         public static final int dialog_internetconnection_offline_button_tryagain=0x7f050036;
         public static final int dialog_internetconnection_offline_progressbar=0x7f050034;
-        public static final int diaryPagerTabStrip=0x7f05003e;
-        public static final int diaryViewPager=0x7f05003d;
+        public static final int diaryPagerTabStrip=0x7f05004a;
+        public static final int diaryViewPager=0x7f050049;
         public static final int disableHome=0x7f050009;
         public static final int drawer_layout=0x7f05003a;
+        public static final int food_cancel_button=0x7f050048;
+        public static final int food_date_label=0x7f050042;
+        public static final int food_description_label=0x7f050047;
+        public static final int food_msg_label=0x7f05003f;
+        public static final int food_name_label=0x7f05003e;
+        public static final int food_repeat_label=0x7f050045;
+        public static final int food_save_button=0x7f050043;
+        public static final int food_search_button=0x7f050041;
+        public static final int food_series_label=0x7f050044;
+        public static final int food_time_label=0x7f050040;
+        public static final int food_title=0x7f05003d;
+        public static final int food_weight_label=0x7f050046;
         public static final int homeAsUp=0x7f050006;
         public static final int icon=0x7f050037;
         public static final int listMode=0x7f050002;
@@ -855,8 +869,32 @@ containing a value of this type.
         public static final int loginBtn=0x7f050029;
         public static final int loginName=0x7f050027;
         public static final int loginPass=0x7f050028;
+        public static final int measurement_cancel_button=0x7f050056;
+        public static final int measurement_date_label=0x7f050050;
+        public static final int measurement_description_label=0x7f050055;
+        public static final int measurement_msg_label=0x7f05004d;
+        public static final int measurement_name_label=0x7f05004c;
+        public static final int measurement_repeat_label=0x7f050053;
+        public static final int measurement_save_button=0x7f050051;
+        public static final int measurement_search_button=0x7f05004f;
+        public static final int measurement_series_label=0x7f050052;
+        public static final int measurement_time_label=0x7f05004e;
+        public static final int measurement_title=0x7f05004b;
+        public static final int measurement_weight_label=0x7f050054;
         public static final int normal=0x7f050001;
-        public static final int pagerTabStrip=0x7f050043;
+        public static final int pagerTabStrip=0x7f050073;
+        public static final int recepie_cancel_button=0x7f050062;
+        public static final int recepie_date_label=0x7f05005c;
+        public static final int recepie_description_label=0x7f050061;
+        public static final int recepie_msg_label=0x7f050059;
+        public static final int recepie_name_label=0x7f050058;
+        public static final int recepie_repeat_label=0x7f05005f;
+        public static final int recepie_save_button=0x7f05005d;
+        public static final int recepie_search_button=0x7f05005b;
+        public static final int recepie_series_label=0x7f05005e;
+        public static final int recepie_time_label=0x7f05005a;
+        public static final int recepie_title=0x7f050057;
+        public static final int recepie_weight_label=0x7f050060;
         public static final int regBirthdayField=0x7f050030;
         public static final int regBtn=0x7f05002a;
         public static final int regConfirmPasswordField=0x7f05002e;
@@ -872,11 +910,23 @@ containing a value of this type.
         public static final int subtitle=0x7f050039;
         public static final int tabMode=0x7f050003;
         public static final int title=0x7f050038;
-        public static final int toast_done_textview=0x7f05003f;
-        public static final int toast_error_textview=0x7f050040;
-        public static final int toast_info_textview=0x7f050041;
+        public static final int toast_done_textview=0x7f050063;
+        public static final int toast_error_textview=0x7f050064;
+        public static final int toast_info_textview=0x7f050065;
+        public static final int training_cancel_button=0x7f050071;
+        public static final int training_date_label=0x7f05006b;
+        public static final int training_description_label=0x7f050070;
+        public static final int training_msg_label=0x7f050068;
+        public static final int training_name_label=0x7f050067;
+        public static final int training_repeat_label=0x7f05006e;
+        public static final int training_save_button=0x7f05006c;
+        public static final int training_search_button=0x7f05006a;
+        public static final int training_series_label=0x7f05006d;
+        public static final int training_time_label=0x7f050069;
+        public static final int training_title=0x7f050066;
+        public static final int training_weight_label=0x7f05006f;
         public static final int useLogo=0x7f050004;
-        public static final int viewPager=0x7f050042;
+        public static final int viewPager=0x7f050072;
         public static final int wrap_content=0x7f050000;
     }
     public static final class integer {
@@ -911,22 +961,26 @@ containing a value of this type.
         public static final int diaryfragmenttab3=0x7f030019;
         public static final int drawer_list_item=0x7f03001a;
         public static final int drawer_main=0x7f03001b;
-        public static final int fragment_buy_training_plan=0x7f03001c;
-        public static final int fragment_diary=0x7f03001d;
-        public static final int fragment_infos=0x7f03001e;
-        public static final int fragment_profile=0x7f03001f;
-        public static final int fragment_recipes=0x7f030020;
-        public static final int fragment_reminders=0x7f030021;
-        public static final int fragment_tips=0x7f030022;
-        public static final int fragment_training_plan=0x7f030023;
-        public static final int sherlock_spinner_dropdown_item=0x7f030024;
-        public static final int sherlock_spinner_item=0x7f030025;
-        public static final int statisticsfragmenttab1=0x7f030026;
-        public static final int statisticsfragmenttab2=0x7f030027;
-        public static final int toast_done=0x7f030028;
-        public static final int toast_error=0x7f030029;
-        public static final int toast_info=0x7f03002a;
-        public static final int viewpager_main=0x7f03002b;
+        public static final int food_add_alert=0x7f03001c;
+        public static final int fragment_buy_training_plan=0x7f03001d;
+        public static final int fragment_diary=0x7f03001e;
+        public static final int fragment_infos=0x7f03001f;
+        public static final int fragment_profile=0x7f030020;
+        public static final int fragment_recipes=0x7f030021;
+        public static final int fragment_reminders=0x7f030022;
+        public static final int fragment_tips=0x7f030023;
+        public static final int fragment_training_plan=0x7f030024;
+        public static final int measurement_add_alert=0x7f030025;
+        public static final int recepie_add_alert=0x7f030026;
+        public static final int sherlock_spinner_dropdown_item=0x7f030027;
+        public static final int sherlock_spinner_item=0x7f030028;
+        public static final int statisticsfragmenttab1=0x7f030029;
+        public static final int statisticsfragmenttab2=0x7f03002a;
+        public static final int toast_done=0x7f03002b;
+        public static final int toast_error=0x7f03002c;
+        public static final int toast_info=0x7f03002d;
+        public static final int training_add_alert=0x7f03002e;
+        public static final int viewpager_main=0x7f03002f;
     }
     public static final class menu {
         public static final int activity_main=0x7f0d0000;
@@ -2054,7 +2108,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
          */
         public static final int[] SherlockSpinner = {
             0x010100af, 0x01010175, 0x01010176, 0x0101017b,
-            0x01010262, 0x010102ac, 0x010102ad, 0x0101043d
+            0x01010262, 0x010102ac, 0x010102ad, 0x0101043a
         };
         /**
           <p>

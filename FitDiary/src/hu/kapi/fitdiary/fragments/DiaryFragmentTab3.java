@@ -1,7 +1,8 @@
 package hu.kapi.fitdiary.fragments;
 
-import hu.kapi.fitdiary.DateSlider;
 import hu.kapi.fitdiary.R;
+import hu.kapi.fitdiary.util.Session;
+import hu.kapi.fitdiary.widgets.DateSlider;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,6 +27,5 @@ public class DiaryFragmentTab3 extends SherlockFragment{
 		ds = new DateSlider(getActivity());
 		rootView.addView(ds);
         return rootView;
-	}
-
+	}	
 }

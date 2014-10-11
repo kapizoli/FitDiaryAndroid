@@ -1,6 +1,6 @@
 package hu.kapi.fitdiary.fragments;
 
-import hu.kapi.fitdiary.RegistrationActivity;
+import hu.kapi.fitdiary.activites.RegistrationActivity;
 
 import java.util.Calendar;
 

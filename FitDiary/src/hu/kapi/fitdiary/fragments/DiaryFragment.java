@@ -1,12 +1,9 @@
 package hu.kapi.fitdiary.fragments;
 
-import java.lang.reflect.Field;
-
-import com.actionbarsherlock.app.SherlockFragment;
-
-import hu.kapi.fitdiary.DiaryViewPagerAdapter;
 import hu.kapi.fitdiary.R;
-import hu.kapi.fitdiary.R.layout;
+import hu.kapi.fitdiary.adapters.DiaryViewPagerAdapter;
+
+import java.lang.reflect.Field;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -16,8 +13,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.actionbarsherlock.app.SherlockFragment;
+
 public class DiaryFragment extends SherlockFragment {
 	Context mContext;
+	public ViewPager mViewPager;
 	 
 	public DiaryFragment(Context context) {
 		mContext = context;
@@ -28,7 +28,7 @@ public class DiaryFragment extends SherlockFragment {
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_diary, container, false);
 		// Locate the ViewPager in viewpager_main.xml
-		ViewPager mViewPager = (ViewPager) view.findViewById(R.id.diaryViewPager);
+		mViewPager = (ViewPager) view.findViewById(R.id.diaryViewPager);
 		// Set the ViewPagerAdapter into ViewPager
 		mViewPager.setAdapter(new DiaryViewPagerAdapter(getChildFragmentManager(), mContext));
 		mViewPager.setCurrentItem(1);

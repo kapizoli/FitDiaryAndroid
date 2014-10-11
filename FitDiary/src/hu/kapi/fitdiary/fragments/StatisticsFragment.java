@@ -3,9 +3,9 @@ package hu.kapi.fitdiary.fragments;
 import java.lang.reflect.Field;
 import com.actionbarsherlock.app.SherlockFragment;
 import hu.kapi.fitdiary.R;
-import hu.kapi.fitdiary.StatisticsViewPagerAdapter;
 import hu.kapi.fitdiary.R.id;
 import hu.kapi.fitdiary.R.layout;
+import hu.kapi.fitdiary.adapters.StatisticsViewPagerAdapter;
 
 import android.content.Context;
 import android.os.Bundle;
