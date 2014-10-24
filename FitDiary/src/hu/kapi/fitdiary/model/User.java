@@ -1,16 +1,20 @@
-package hu.kapi.fitdiary.util;
+package hu.kapi.fitdiary.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 
 public class User {
-	
+
 	int id;
 	String name;
 	String password;
 	String email;
-	int sex;//0-male, 1-female
+	int sex;// 0-male, 1-female
 	Date birthday;
 	Date lastUpdated;
+
+	ArrayList<Meal> mealList;
 
 	public User() {
 		super();
@@ -92,6 +96,52 @@ public class User {
 		return id;
 	}
 
-	
-	
+	public ArrayList<Meal> getMealList() {
+		return mealList;
+	}
+
+	public void setMealList(ArrayList<Meal> mealList) {
+		this.mealList = mealList;
+	}
+
+	private void addMealToList(Meal m) {
+		if (this.mealList == null) {
+			this.mealList = new ArrayList<Meal>();
+			this.mealList.add(m);
+		}
+	}
+
+	public void addMeals(ArrayList<Meal> list) {
+		if (User.this.mealList != null)
+			for (Meal meal : list) {
+				Boolean isMealContain = false;
+				Meal tmp = null;
+				for (Meal meal2 : User.this.mealList) {
+					if (meal.ID == meal2.ID) {
+						isMealContain = true;
+						tmp = meal2;
+						break;
+					}
+				}
+				if (!isMealContain) {
+					addMealToList(meal);
+				} else {
+					for (Food food : meal.foodList) {
+						Boolean isFoodContain = false;
+						for (Food food2 : tmp.foodList) {
+							if (food.ID == food2.ID) {
+								isFoodContain = true;
+								break;
+							}
+						}
+						if (!isFoodContain) {
+							meal.foodList.add(food);
+						}
+					}
+				}
+			} else {
+				setMealList(list);
+			}
+	}
+
 }

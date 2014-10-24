@@ -1,5 +1,7 @@
 package hu.kapi.fitdiary.util;
 
+import hu.kapi.fitdiary.model.User;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -17,11 +19,13 @@ public class Session {
 	Communication communication;
 	public ProgressDialog progressDialog = null;
 	public static Toast lastToast = null;
-	static final String DATEFORMAT = "yyyy-MM-dd HH:mm:ss";
+	public static final String DATEFORMAT = "yyyy-MM-dd HH:mm:ss";
+	public static SimpleDateFormat sdf;
 	public Fragment actualFragment;
 
 	protected Session() {
 		this.communication = new Communication();
+		sdf = new SimpleDateFormat(Session.DATEFORMAT);
 	}
 
 	public static Session getInstance() {

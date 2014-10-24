@@ -44,22 +44,19 @@
         <item>Grafikon</item>
         <item>Táblázat</item>
     </string-array>
-    
     <string-array name="register_spinner_sex">
         <item>Férfi</item>
         <item>Nő</item>
     </string-array>
-    <string name="male">Férfi</string>
 
+    <string name="male">Férfi</string>
     <string name="title_activity_registration">Regisztráció</string>
-    
     <string name="name">Név</string>
     <string name="password">Jelszó</string>
     <string name="confirm_password">Jelszó megerősítése</string>
     <string name="email">Email</string>
     <string name="birthday">Születésnap</string>
     <string name="sex">Nem</string>
-    
     <string name="login">Bejelentkezés</string>
     <string name="registration">Regisztráció</string>
     <string name="login_without_registration">Belépés regisztráció nélkül</string>
@@ -67,15 +64,14 @@
     <string name="action_add">Hozzáadás</string>
     <string name="action_graph">Grafikon</string>
     <string name="action_table">Táblázat</string>
-    
     <string name="language">hun</string>
     <string name="yesterday">Tegnap</string>
     <string name="today">Ma</string>
     <string name="tomorrow">Holnap</string>
-    
     <string name="calorie">Kalória</string>
     <string name="fat">Zsír</string>
     <string name="carbohidrate">Szénhidrát</string>
     <string name="protein">Fehérje</string>
+    <string name="title_activity_add">AddActivity</string>
 
 </resources>

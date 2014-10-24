@@ -12,7 +12,6 @@ import hu.kapi.fitdiary.fragments.StatisticsFragment;
 import hu.kapi.fitdiary.fragments.TipsFragment;
 import hu.kapi.fitdiary.fragments.TrainingPlanFragment;
 import hu.kapi.fitdiary.util.Session;
-import android.app.Dialog;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -26,10 +25,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.Window;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 
 import com.actionbarsherlock.app.SherlockFragmentActivity;
@@ -46,7 +42,7 @@ public class SecondActivity extends SherlockFragmentActivity {
 	String[] title;
 	String[] subtitle;
 	int[] icon;
-	Fragment inputFragment = new DiaryFragment(this);
+	Fragment diaryFragment = new DiaryFragment(this);
 	Fragment statistcsFragment = new StatisticsFragment(this);
 	Fragment trainingPlanFragment = new TrainingPlanFragment();
 	Fragment buyTrainingPlanFragment = new BuyTrainingPlanFragment();
@@ -61,13 +57,19 @@ public class SecondActivity extends SherlockFragmentActivity {
 	String actualTitle;
 	MenuItem addItem/* , graphItem, tableItem */;
 
+	/* (non-Javadoc)
+	 * @see android.support.v4.app.FragmentActivity#onCreate(android.os.Bundle)
+	 */
+	/* (non-Javadoc)
+	 * @see android.support.v4.app.FragmentActivity#onCreate(android.os.Bundle)
+	 */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		// Get the view from drawer_main.xml
 		setContentView(R.layout.drawer_main);
 
-		Session.getInstance().actualFragment = inputFragment;
+		Session.getInstance().actualFragment = diaryFragment;
 
 		Resources res = getResources();
 		TAG = this.getClass().getName();
@@ -123,7 +125,6 @@ public class SecondActivity extends SherlockFragmentActivity {
 			public void onDrawerClosed(View view) {
 				// TODO Auto-generated method stub
 				super.onDrawerClosed(view);
-				Log.d(TAG, "Drawer closed");
 				setTitle(actualTitle);
 			}
 
@@ -146,7 +147,26 @@ public class SecondActivity extends SherlockFragmentActivity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.action_add:
-			addItemSelected();
+			Intent i = new Intent(SecondActivity.this, AddActivity.class);
+			if (diaryFragment == Session.getInstance().actualFragment) {
+				int currentPosition = ((DiaryFragment) diaryFragment).mViewPager
+						.getCurrentItem();
+				Fragment currentFragment = ((FragmentPagerAdapter) ((DiaryFragment) diaryFragment).mViewPager
+						.getAdapter()).getItem(currentPosition);
+				Log.d("addItemSelected", currentFragment.getClass().getName());
+				i.putExtra("type", currentFragment.getClass().getName());
+			startActivity(i);
+			} else if (recipesFragment == Session.getInstance().actualFragment) {
+				Log.d("addItemSelected", Session.getInstance().actualFragment
+						.getClass().getName());
+				i.putExtra("type", Session.getInstance().actualFragment
+						.getClass().getName());
+			startActivity(i);
+			} else {
+				// nem kellene ide futnia
+				Log.d("addItemSelected", Session.getInstance().actualFragment
+						.getClass().getName());
+			}
 			break;
 		case android.R.id.home:
 			if (mDrawerLayout.isDrawerOpen(mDrawerList)) {
@@ -161,132 +181,6 @@ public class SecondActivity extends SherlockFragmentActivity {
 		}
 
 		return super.onOptionsItemSelected(item);
-	}
-
-	private void addItemSelected() {
-		// TODO:az aktuális fragment alapján megmondani h mit csináljon ha
-		// rányomunk
-		if (inputFragment == Session.getInstance().actualFragment) {
-			int currentPosition = ((DiaryFragment) inputFragment).mViewPager
-					.getCurrentItem();
-			Fragment currentFragment = ((FragmentPagerAdapter) ((DiaryFragment) inputFragment).mViewPager
-					.getAdapter()).getItem(currentPosition);
-			Log.d("addItemSelected", currentFragment.getClass().getName());
-			showAddAlert(currentPosition);
-		} else if (recipesFragment == Session.getInstance().actualFragment) {
-			Log.d("addItemSelected", Session.getInstance().actualFragment
-					.getClass().getName());
-			showAddAlert(3);
-		} else {
-			// TODO: nem kellene ide futnia, de ha mégis akkor kezelni
-			Log.d("addItemSelected", Session.getInstance().actualFragment
-					.getClass().getName());
-		}
-
-	}
-
-	public void showAddAlert(int position) {
-		final Dialog dialog = new Dialog(this);
-		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); 
-		switch (position) {
-		case 0:{//diaryFragment1 - training
-			dialog.setContentView(R.layout.training_add_alert);
-			
-			Button searchButton = (Button) dialog.findViewById(R.id.training_search_button);
-			searchButton.setOnClickListener(new OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					//TODO: feldobni egy listát amiből választhat
-					
-				}
-			});
-			
-			Button cancelButton = (Button) dialog.findViewById(R.id.training_cancel_button);
-			cancelButton.setOnClickListener(new OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					dialog.dismiss();
-				}
-			});
-			
-			Button saveButton = (Button) dialog.findViewById(R.id.training_save_button);
-			saveButton.setOnClickListener(new OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					//TODO: adat küldsése a szerverre és mentés a sessionben
-					
-					dialog.dismiss();
-				}
-			});
-			
-			break;}
-		case 1:{//diaryFragment2 - food
-			dialog.setContentView(R.layout.food_add_alert);
-			
-			Button cancelButton = (Button) dialog.findViewById(R.id.food_cancel_button);
-			cancelButton.setOnClickListener(new OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					dialog.dismiss();
-				}
-			});
-			
-			Button saveButton = (Button) dialog.findViewById(R.id.food_save_button);
-			saveButton.setOnClickListener(new OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					//TODO: adat küldsése a szerverre és mentés a sessionben
-					
-					dialog.dismiss();
-				}
-			});
-			break;}
-		case 2:{//diaryFragment3 - measurement
-			dialog.setContentView(R.layout.measurement_add_alert);
-
-			Button cancelButton = (Button) dialog.findViewById(R.id.measurement_cancel_button);
-			cancelButton.setOnClickListener(new OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					dialog.dismiss();
-				}
-			});
-			
-			Button saveButton = (Button) dialog.findViewById(R.id.measurement_save_button);
-			saveButton.setOnClickListener(new OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					//TODO: adat küldsése a szerverre és mentés a sessionben
-					
-					dialog.dismiss();
-				}
-			});
-			break;}
-		case 3:{//recipesFragment
-			dialog.setContentView(R.layout.recepie_add_alert);
-
-			Button cancelButton = (Button) dialog.findViewById(R.id.recepie_cancel_button);
-			cancelButton.setOnClickListener(new OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					dialog.dismiss();
-				}
-			});
-			
-			Button saveButton = (Button) dialog.findViewById(R.id.recepie_save_button);
-			saveButton.setOnClickListener(new OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					//TODO: adat küldsése a szerverre és mentés a sessionben
-					
-					dialog.dismiss();
-				}
-			});
-			break;}
-		default:
-			break;
-		}
-		dialog.show();
 	}
 
 	// ListView click listener in the navigation drawer
@@ -305,8 +199,8 @@ public class SecondActivity extends SherlockFragmentActivity {
 		// Locate Position
 		switch (position) {
 		case 0:
-			ft.replace(R.id.content_frame, inputFragment);
-			Session.getInstance().actualFragment = inputFragment;
+			ft.replace(R.id.content_frame, diaryFragment);
+			Session.getInstance().actualFragment = diaryFragment;
 			if (addItem != null) {
 				addItem.setVisible(true);
 			}

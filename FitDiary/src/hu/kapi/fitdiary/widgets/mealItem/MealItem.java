@@ -1,10 +1,11 @@
-package hu.kapi.fitdiary.widgets;
+package hu.kapi.fitdiary.widgets.mealItem;
 
 import hu.kapi.fitdiary.R;
+import hu.kapi.fitdiary.model.Meal;
+import hu.kapi.fitdiary.util.Session;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Handler;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.animation.Animation;
@@ -12,7 +13,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class DiaryItem extends LinearLayout {
+public class MealItem extends LinearLayout {
 	
 	LinearLayout headerRootLayout, bodyLayout, headerLeftLayout, headerRightLayout;
 	TextView headerNameTv, headerDateTv, headerCalorieTv;
@@ -21,7 +22,7 @@ public class DiaryItem extends LinearLayout {
 	LayoutParams params;
 	Context mContext;
 
-	public DiaryItem(Context context) {
+	public MealItem(Context context) {
 		super(context);
 		mContext = context;
 		
@@ -50,17 +51,17 @@ public class DiaryItem extends LinearLayout {
 		
 		
 		headerNameTv = new TextView(context);
-		headerNameTv.setText("headerNameTv");
+//		headerNameTv.setText("headerNameTv");
 		params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 2.0f);
 		headerLeftLayout.addView(headerNameTv, params);
 		
 		headerDateTv = new TextView(context);
-		headerDateTv.setText("headerDateTv");
+//		headerDateTv.setText("headerDateTv");
 		params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f);
 		headerLeftLayout.addView(headerDateTv, params);
 		
 		headerCalorieTv = new TextView(context);
-		headerCalorieTv.setText("headerCalorieTv");
+//		headerCalorieTv.setText("headerCalorieTv");
 		headerCalorieTv.setLayoutParams(params);
 		headerCalorieTv.setGravity(Gravity.RIGHT);
 		headerRightLayout.addView(headerCalorieTv);
@@ -97,10 +98,10 @@ public class DiaryItem extends LinearLayout {
 		bodyLeft.addView(bodyCarbohydrateTv); bodyRight.addView(bodyCarbohydrateNumberTv);
 		bodyLeft.addView(bodyProteinTv); bodyRight.addView(bodyProteinNumberTv);
 		
-		bodyCalorieTv.setText("Calorie:"); bodyCalorieNumberTv.setText("1");
-		bodyFatTv.setText("Fat:"); bodyFatNumberTv.setText("2");
-		bodyCarbohydrateTv.setText("Carbohydrate:"); bodyCarbohydrateNumberTv.setText("3");
-		bodyProteinTv.setText("Protein"); bodyProteinNumberTv.setText("4");
+		bodyCalorieTv.setText("Calorie:"); //bodyCalorieNumberTv.setText("1");
+		bodyFatTv.setText("Fat:"); //bodyFatNumberTv.setText("2");
+		bodyCarbohydrateTv.setText("Carbohydrate:"); //bodyCarbohydrateNumberTv.setText("3");
+		bodyProteinTv.setText("Protein"); //bodyProteinNumberTv.setText("4");
 		
 		bodyLayout.addView(bodyLeft);
 		bodyLayout.addView(bodyRight);
@@ -149,4 +150,24 @@ public class DiaryItem extends LinearLayout {
 		
 	}
 
+	public void setTexts(Meal m){
+		if (m.getName() == null || "".equalsIgnoreCase(m.getName()) || " ".equalsIgnoreCase(m.getName())) {
+			headerNameTv.setText("n/a");
+		} else {
+			headerNameTv.setText(m.getName());
+		}
+		
+		if (m.getDate() == null) {
+			headerDateTv.setText("n/a");
+		} else {
+			headerDateTv.setText(Session.sdf.format(m.getDate()));
+		}
+		
+		headerCalorieTv.setText(m.getEnergySum()+" cal");
+		
+		bodyCalorieNumberTv.setText(m.getEnergySum() + " cal");
+		bodyFatNumberTv.setText(m.getFatSum() + " g");
+		bodyCarbohydrateNumberTv.setText(m.getCarbohidrateSum() + "g");
+		bodyProteinNumberTv.setText(m.getProteinSum() + " g");
+	}
 }

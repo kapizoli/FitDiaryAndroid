@@ -1,21 +1,18 @@
 package hu.kapi.fitdiary.activites;
 
+import hu.kapi.fitdiary.R;
+import hu.kapi.fitdiary.fragments.DatePickerCommunicator;
+import hu.kapi.fitdiary.fragments.DatePickerFragment;
+import hu.kapi.fitdiary.model.User;
+import hu.kapi.fitdiary.util.ErrorToast;
+import hu.kapi.fitdiary.util.NetThread;
+import hu.kapi.fitdiary.util.Session;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import hu.kapi.fitdiary.R;
-import hu.kapi.fitdiary.util.ErrorToast;
-import hu.kapi.fitdiary.util.NetThread;
-import hu.kapi.fitdiary.util.Session;
-import hu.kapi.fitdiary.util.User;
-import hu.kapi.fitdiary.R.anim;
-import hu.kapi.fitdiary.R.id;
-import hu.kapi.fitdiary.R.layout;
-import hu.kapi.fitdiary.R.string;
-import hu.kapi.fitdiary.fragments.DatePickerCommunicator;
-import hu.kapi.fitdiary.fragments.DatePickerFragment;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -93,7 +90,6 @@ public class RegistrationActivity extends android.support.v4.app.FragmentActivit
 								} 
 								
 								if (actualUser != null) {
-									Log.e("REG SCREEN", "Registration done");
 									Session.getInstance().setActualUser(
 											actualUser);
 								}
@@ -105,14 +101,10 @@ public class RegistrationActivity extends android.support.v4.app.FragmentActivit
 										if (actualUser == null) {
 											Session.getInstance()
 													.dismissProgressDialog();
-											Log.e("REG SCREEN",
-													"WRONG NAME-PASSWORD PAIR, TOAST WILL BE SHOWED");
 											new ErrorToast(
 													RegistrationActivity.this,
 													"Sikertelen bejelentkezés! Hibás felhasználónév vagy jelszó! Próbáld újra!")
 													.show();
-											Log.e("REG SCREEN",
-													"TOAST SHOWN SUCCESSFULLY");
 										} else if (actualUser.getId() == -1) {
 											new ErrorToast(
 													RegistrationActivity.this,
@@ -128,8 +120,6 @@ public class RegistrationActivity extends android.support.v4.app.FragmentActivit
 											overridePendingTransition(
 													R.anim.slide_left_in,
 													R.anim.slide_left_out);
-											Log.e("REG SCREEN",
-													"SECONDACTIVITY STARTED");
 											finish();
 										}
 										Session.getInstance()
@@ -199,11 +189,5 @@ public class RegistrationActivity extends android.support.v4.app.FragmentActivit
 		
 		SimpleDateFormat dateformat2 = new SimpleDateFormat(
 	             "yyyy-MM-dd");
-		try {
-			Log.d("RegistrationActivity", "birthday: "+dateformat2.parse(date));
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 }

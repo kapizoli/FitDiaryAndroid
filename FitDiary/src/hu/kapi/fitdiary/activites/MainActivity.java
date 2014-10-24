@@ -1,18 +1,18 @@
 package hu.kapi.fitdiary.activites;
 
 import hu.kapi.fitdiary.R;
-import hu.kapi.fitdiary.R.anim;
-import hu.kapi.fitdiary.R.id;
-import hu.kapi.fitdiary.R.layout;
+import hu.kapi.fitdiary.model.User;
 import hu.kapi.fitdiary.util.ErrorToast;
 import hu.kapi.fitdiary.util.NetThread;
 import hu.kapi.fitdiary.util.Session;
-import hu.kapi.fitdiary.util.User;
+
+import java.util.Calendar;
+import java.util.Date;
+
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,8 +34,6 @@ EditText email, password;
 			
 			@Override
 			public void onClick(View v) {
-				Log.d("mainactivity", email.getText().toString());
-				Log.d("mainactivity", password.getText().toString());
 				
 				Runnable r = new Runnable() {
 
@@ -47,8 +45,13 @@ EditText email, password;
 
 	                    if (actualUser != null) {
 	                        // Ha a nĂ©v Ă©s jelszĂł pĂˇros helyes
-	                        Log.e("LOGIN SCREEN", "CORRECT USERNAME-PASSWORD PAIR, CLUBSACTIVITY STARTING");
 	                        Session.getInstance().setActualUser(actualUser);
+	                        Date begin = new Date();
+	                        Calendar c = Calendar.getInstance();
+	                        c.setTime(begin);
+	                        c.add(Calendar.DATE, 1);
+	                        Date end = c.getTime();
+	                        Session.getInstance().getActualCommunication().getMealListForUser(begin, end);
 	                    }
 
 	                    Activity a = MainActivity.this;
@@ -58,15 +61,12 @@ EditText email, password;
 	                        public void run() {
 	                            if (actualUser == null) {
 	                                Session.getInstance().dismissProgressDialog();
-	                                Log.e("LOGIN SCREEN", "WRONG NAME-PASSWORD PAIR, TOAST WILL BE SHOWED");
-	                                new ErrorToast(MainActivity.this, "Sikertelen bejelentkezés! Hibásfelhasználónév vagy jelszó! Próbáld újra!").show();
-	                                Log.e("LOGIN SCREEN", "TOAST SHOWN SUCCESSFULLY");
+	                                new ErrorToast(MainActivity.this, "Sikertelen bejelentkezés! Hibás felhasználónév vagy jelszó! Próbáld újra!").show();
 	                            } else {
 	                                Intent newIntent = new Intent(MainActivity.this, SecondActivity.class);
 
 	                                startActivity(newIntent);
 	                                overridePendingTransition(R.anim.slide_left_in, R.anim.slide_left_out);
-	                                Log.e("LOGIN SCREEN", "CLUBSACTIVITY STARTED");
 	                                finish();
 	                            }
 	                            Session.getInstance().dismissProgressDialog();
