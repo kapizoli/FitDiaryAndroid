@@ -52,6 +52,7 @@ EditText email, password;
 	                        c.add(Calendar.DATE, 1);
 	                        Date end = c.getTime();
 	                        Session.getInstance().getActualCommunication().getMealListForUser(begin, end);
+	                        Session.getInstance().getActualCommunication().setFoodPlan();
 	                    }
 
 	                    Activity a = MainActivity.this;

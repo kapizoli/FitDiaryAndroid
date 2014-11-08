@@ -141,7 +141,7 @@ public class Communication {
 		cal.set(Calendar.SECOND, 0);
 		cal.set(Calendar.MILLISECOND, 0);
 		begin = cal.getTime();
-		
+
 		cal = Calendar.getInstance();
 		cal.setTime(end);
 		cal.set(Calendar.HOUR_OF_DAY, 0);
@@ -149,7 +149,7 @@ public class Communication {
 		cal.set(Calendar.SECOND, 0);
 		cal.set(Calendar.MILLISECOND, 0);
 		end = cal.getTime();
-		
+
 		HashMap<String, String> post = new HashMap<String, String>();
 		post.put("action", "GetByDays");
 		post.put("user_id", String.valueOf(userID));
@@ -162,14 +162,15 @@ public class Communication {
 				return;
 			}
 
-			Session.getInstance().getActualUser().addMeals(parseMealJSON(new JSONObject(data)));
+			Session.getInstance().getActualUser()
+					.addMeals(parseMealJSON(new JSONObject(data)));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 	}
-	
+
 	public void setAllMealForUser() {
 		int userID = Session.getInstance().getActualUser().getId();
 		HashMap<String, String> post = new HashMap<String, String>();
@@ -190,6 +191,23 @@ public class Communication {
 		}
 
 	}
+	
+	public void setFoodPlan() {
+		HashMap<String, String> post = new HashMap<String, String>();
+		post.put("action", "GETFOOD");
+
+		try {
+			String data = httpPost("plan.php", post);
+			if (data.equals("FAILED")) {
+				return;
+			}
+			Session.getInstance().setFoodPlanList(parseFoodListJSON(new JSONArray(data)));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
 
 	private ArrayList<Meal> parseMealJSON(JSONObject json)
 			throws JSONException, ParseException {
@@ -200,41 +218,47 @@ public class Communication {
 			String d = meals.getJSONObject(i).getString("date");
 			Date date = dateformat.parse(d);
 			Meal meal = new Meal(Integer.valueOf(meals.getJSONObject(i)
-					.getString("id")), date, meals.getJSONObject(i).getString("name") );
+					.getString("id")), date, meals.getJSONObject(i).getString(
+					"name"));
 
 			if (meals.getJSONObject(i).has("foods")) {
 				JSONArray foods = meals.getJSONObject(i).getJSONArray("foods");
+				
 				for (int j = 0; j < foods.length(); j++) {
-					int iD = Integer.valueOf(foods.getJSONObject(j).getString(
-							"id"));
-					String name = foods.getJSONObject(j).getString("name");
-					int unit = Integer.valueOf(foods.getJSONObject(j)
-							.getString("unit"));
-					double quantity = Double.valueOf(foods.getJSONObject(j)
-							.getString("quantity"));
-					double fat = Double.valueOf(foods.getJSONObject(j)
-							.getString("fat"));
-					double sugar = Double.valueOf(foods.getJSONObject(j)
-							.getString("sugar"));
-					double energy = Double.valueOf(foods.getJSONObject(j)
-							.getString("energy"));
-					double carbohidrate = Double.valueOf(foods.getJSONObject(j)
-							.getString("carbohidrate"));
-					double protein = Double.valueOf(foods.getJSONObject(j)
-							.getString("protein"));
-					int daily_category = Integer.valueOf(foods.getJSONObject(j)
-							.getString("daily_category"));
-					int resource_category = Integer.valueOf(foods
-							.getJSONObject(j).getString("resource_category"));
-					
-					Food food = new Food(iD, name, unit, quantity, fat, sugar,
-							energy, carbohidrate, protein, daily_category, resource_category);
-					meal.addFoodToList(food);
+					meal.addFoodToList(parseFoodJSON(foods.getJSONObject(j)));
 				}
 			}
 			list.add(meal);
 		}
 
+		return list;
+	}
+
+	private Food parseFoodJSON(JSONObject json) throws JSONException,
+			ParseException {
+		int iD = Integer.valueOf(json.getString("id"));
+		String name = json.getString("name");
+		int unit = Integer.valueOf(json.getString("unit"));
+		double quantity = Double.valueOf(json.getString("quantity"));
+		double fat = Double.valueOf(json.getString("fat"));
+		double sugar = Double.valueOf(json.getString("sugar"));
+		double energy = Double.valueOf(json.getString("energy"));
+		double carbohidrate = Double.valueOf(json.getString("carbohidrate"));
+		double protein = Double.valueOf(json.getString("protein"));
+		int daily_category = Integer.valueOf(json.getString("daily_category"));
+		int resource_category = Integer.valueOf(json
+				.getString("resource_category"));
+		
+		return new Food(iD, name, unit, quantity, fat, sugar, energy,
+				carbohidrate, protein, daily_category, resource_category);
+	}
+	
+	private ArrayList<Food> parseFoodListJSON(JSONArray array) throws JSONException,
+	ParseException {
+		ArrayList<Food> list = new ArrayList<Food>();
+		for (int j = 0; j < array.length(); j++) {
+			list.add(parseFoodJSON(array.getJSONObject(j)));
+		}
 		return list;
 	}
 }

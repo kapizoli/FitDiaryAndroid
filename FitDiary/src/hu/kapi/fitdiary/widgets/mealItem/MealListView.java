@@ -23,10 +23,15 @@ LinearLayout linearLayout;
 	}
 	
 	public void setList (ArrayList<Meal> list){
-		for (int i = 0; i < list.size(); i++) {
-			MealItem item = new MealItem(mContext);
-			item.setTexts(list.get(i));
-			linearLayout.addView(item);
+		linearLayout.removeAllViews();
+		if (list != null || list.size() == 0){
+			for (int i = 0; i < list.size(); i++) {
+				MealItem item = new MealItem(mContext);
+				item.setTexts(list.get(i));
+				linearLayout.addView(item);
+			}
+		} else {
+			//TODO: kiírni egy üzenetet h nincs adat!
 		}
 	}
 

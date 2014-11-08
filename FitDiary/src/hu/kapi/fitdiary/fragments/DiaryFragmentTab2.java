@@ -24,7 +24,7 @@ public class DiaryFragmentTab2 extends SherlockFragment{
 //		
 //		return view;
 		LinearLayout rootView = new LinearLayout(getActivity());
-		ds = new DateSlider(getActivity());
+		ds = new DateSlider(getActivity(),this);
 		rootView.addView(ds);
         return rootView;
 	}	

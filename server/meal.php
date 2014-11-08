@@ -2,7 +2,7 @@
 
 date_default_timezone_set("UTC");
 define("USAGE_WWW_OUTPUT", false);
-define("TABLE_NAME", "user");
+define("TABLE_NAME", "meal");
 
 include_once('config.php'); // $sqlDB; $sqlDBi;
 

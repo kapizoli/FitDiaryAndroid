@@ -29,6 +29,8 @@ public class Food {
 		this.daily_category = daily_category;
 		this.resource_category = resource_category;
 	}
+	public Food() {}
+	
 	public String getName() {
 		return name;
 	}

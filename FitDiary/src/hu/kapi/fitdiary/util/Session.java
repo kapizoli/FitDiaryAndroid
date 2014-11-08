@@ -1,9 +1,11 @@
 package hu.kapi.fitdiary.util;
 
+import hu.kapi.fitdiary.model.Food;
 import hu.kapi.fitdiary.model.User;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.TimeZone;
 
@@ -22,6 +24,7 @@ public class Session {
 	public static final String DATEFORMAT = "yyyy-MM-dd HH:mm:ss";
 	public static SimpleDateFormat sdf;
 	public Fragment actualFragment;
+	public ArrayList<Food> foodPlanList;
 
 	protected Session() {
 		this.communication = new Communication();
@@ -96,6 +99,14 @@ public class Session {
 	    }
 
 	    return dateToReturn;
+	}
+
+	public ArrayList<Food> getFoodPlanList() {
+		return foodPlanList;
+	}
+
+	public void setFoodPlanList(ArrayList<Food> foodPlanList) {
+		this.foodPlanList = foodPlanList;
 	}
 	
 }

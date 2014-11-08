@@ -1,8 +1,13 @@
 package hu.kapi.fitdiary.model;
 
+import hu.kapi.fitdiary.util.Session;
+
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
+
+import android.util.Log;
 
 public class User {
 
@@ -112,6 +117,7 @@ public class User {
 	}
 
 	public void addMeals(ArrayList<Meal> list) {
+		//TODO: ha szerveren törlünk egy adatot az attól még a kliensen ott marad, ki kell keresni és törölni (v újra kell húzni a lokál db-t)
 		if (User.this.mealList != null)
 			for (Meal meal : list) {
 				Boolean isMealContain = false;
@@ -139,9 +145,62 @@ public class User {
 						}
 					}
 				}
-			} else {
-				setMealList(list);
 			}
+		else {
+			setMealList(list);
+		}
 	}
 
+	public ArrayList<Meal> getMealListForDays(Date begin, Date end) {
+		Session.getInstance().getActualCommunication().getMealListForUser(begin, end);
+		
+		Calendar cal1 = Calendar.getInstance();
+		cal1.setTime(begin);
+		Calendar cal2 = Calendar.getInstance();
+		cal2.setTime(end);
+		Calendar cal3 = Calendar.getInstance();
+		
+		if (mealList != null) {
+			ArrayList<Meal> list = new ArrayList<Meal>();
+			for (Meal meal : mealList) {
+				cal3.setTime(meal.date);
+				if (cal1.get(Calendar.YEAR) <= cal3.get(Calendar.YEAR) &&
+						cal1.get(Calendar.DAY_OF_YEAR) <= cal3.get(Calendar.DAY_OF_YEAR)
+						&& cal2.get(Calendar.YEAR) >= cal3.get(Calendar.YEAR) &&
+								cal2.get(Calendar.DAY_OF_YEAR) >= cal3.get(Calendar.DAY_OF_YEAR)) {
+					list.add(meal);
+				}
+			}
+			return list;
+		} else {
+			return new ArrayList<Meal>();
+		}
+	}
+
+	public ArrayList<Meal> getMealListForDay(Date begin) {
+		Calendar c = Calendar.getInstance();
+		c.setTime(begin);
+		c.add(Calendar.DATE, 1);
+		Date end = c.getTime();
+		Session.getInstance().getActualCommunication().getMealListForUser(begin, end);
+		
+		Calendar cal1 = Calendar.getInstance();
+		cal1.setTime(begin);
+		Calendar cal2 = Calendar.getInstance();
+
+		if (mealList != null) {
+			ArrayList<Meal> list = new ArrayList<Meal>();
+			for (Meal meal : mealList) {
+				cal2.setTime(meal.date);
+				if (cal1.get(Calendar.YEAR) == cal2.get(Calendar.YEAR) &&
+						cal1.get(Calendar.DAY_OF_YEAR) == cal2.get(Calendar.DAY_OF_YEAR)) {
+					list.add(meal);
+				}
+			}
+			return list;
+		} else {
+			return new ArrayList<Meal>();
+		}
+
+	}
 }

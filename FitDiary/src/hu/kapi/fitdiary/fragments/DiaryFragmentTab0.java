@@ -29,7 +29,7 @@ public class DiaryFragmentTab0 extends SherlockFragment{
 //		return view;
 		LinearLayout rootView = new LinearLayout(getActivity());
 		rootView.setOrientation(LinearLayout.VERTICAL);
-		ds = new DateSlider(getActivity());
+		ds = new DateSlider(getActivity(),this);
 		rootView.addView(ds);
 		
 		CalorieWidget cw = new CalorieWidget(getActivity());

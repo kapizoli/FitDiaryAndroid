@@ -1,18 +1,17 @@
 package hu.kapi.fitdiary.widgets;
 
 import hu.kapi.fitdiary.R;
-import hu.kapi.fitdiary.R.drawable;
-import hu.kapi.fitdiary.R.string;
+import hu.kapi.fitdiary.fragments.DiaryFragmentTab0;
+import hu.kapi.fitdiary.fragments.DiaryFragmentTab1;
+import hu.kapi.fitdiary.fragments.DiaryFragmentTab2;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
-import android.graphics.Point;
-import android.util.Log;
+import android.support.v4.app.Fragment;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.View;
@@ -22,6 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class DateSlider extends LinearLayout{
+	Fragment fragment;
 	ImageView leftButton, rightButton;
 	TextView date;
 	Calendar cal, today, yesterday, tomorrow;
@@ -31,9 +31,10 @@ public class DateSlider extends LinearLayout{
 	Resources res;
 	String language;
 	
-	public DateSlider(Context context) {
+	
+	public DateSlider(Context context, Fragment fragment) {
 		super(context);
-		
+		this.fragment = fragment;
 		cal = Calendar.getInstance();
 		today = Calendar.getInstance();
 		tomorrow = Calendar.getInstance();
@@ -88,6 +89,18 @@ public class DateSlider extends LinearLayout{
 				} else {
 					date.setText(sdfen.format(cal.getTime()));
 				}
+				
+				//refresh the list
+				//Complete me
+				String tab = DateSlider.this.fragment.getClass().getName();
+				
+				if (DiaryFragmentTab0.class.getName().equals(tab)) {
+					
+				} else if (DiaryFragmentTab1.class.getName().equals(tab)) {
+					((DiaryFragmentTab1)DateSlider.this.fragment).refreshMealList(cal.getTime());					
+				} else if (DiaryFragmentTab2.class.getName().equals(tab)) {
+					
+				} 
 			}
 		});
 		
@@ -107,6 +120,18 @@ public class DateSlider extends LinearLayout{
 					date.setText(sdfhun.format(cal.getTime()));
 				} else {
 					date.setText(sdfen.format(cal.getTime()));
+				}
+				
+				//refresh the list
+				//Complete me
+				String tab = DateSlider.this.fragment.getClass().getName();
+				
+				if (DiaryFragmentTab0.class.getName().equals(tab)) {
+					
+				} else if (DiaryFragmentTab1.class.getName().equals(tab)) {
+					((DiaryFragmentTab1)DateSlider.this.fragment).refreshMealList(cal.getTime());					
+				} else if (DiaryFragmentTab2.class.getName().equals(tab)) {
+					
 				}
 			}
 		});
