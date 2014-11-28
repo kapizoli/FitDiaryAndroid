@@ -25,10 +25,7 @@
             android:layout_marginTop="16dp"
             android:ems="10"
             android:gravity="center"
-            android:hint="Étkezés neve" >
-
-            <requestFocus />
-        </EditText>
+            android:hint="Étkezés neve" />
 
         <EditText
             android:id="@+id/add_meal_fragment_meal_date"
@@ -38,7 +35,10 @@
             android:layout_below="@+id/add_meal_fragment_meal_name"
             android:layout_marginLeft="21dp"
             android:layout_marginTop="21dp"
-            android:ems="10" />
+            android:ems="10"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="center" />
 
         <EditText
             android:id="@+id/add_meal_fragment_meal_time"
@@ -46,17 +46,23 @@
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/add_meal_fragment_meal_date"
             android:layout_alignParentRight="true"
+            android:layout_marginRight="21dp"
             android:layout_toRightOf="@+id/add_meal_fragment_meal_date"
-            android:ems="10" />
+            android:ems="10"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="center" />
 
         <LinearLayout
             android:id="@+id/add_meal_fragment_food_container_view"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/add_meal_fragment_meal_date"
             android:layout_below="@+id/add_meal_fragment_meal_date"
+            android:layout_marginRight="21dp"
             android:layout_marginTop="43dp"
             android:orientation="vertical" >
+
         </LinearLayout>
 
         <Button
@@ -65,7 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/add_meal_fragment_food_container_view"
             android:layout_centerHorizontal="true"
-            android:text="Button" />
+            android:text="Új étel" />
     </RelativeLayout>
 
 </ScrollView>

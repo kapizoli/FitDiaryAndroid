@@ -1,5 +1,7 @@
 package hu.kapi.fitdiary.fragments;
 
+import hu.kapi.fitdiary.communicators.TimePickerCommunicator;
+
 import java.util.Calendar;
 
 import android.app.Activity;

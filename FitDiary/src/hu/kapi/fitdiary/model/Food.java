@@ -1,7 +1,7 @@
 package hu.kapi.fitdiary.model;
 
 public class Food {
-	int ID;
+	long ID;
 	String name;
 	int unit; //0-g, 1-mg, 2-l, 3-dl, 4-cl, 5-ml, 6-db 
 	double quantity;
@@ -13,7 +13,7 @@ public class Food {
 	int daily_category; //0-reggeli, 1-ebed, 3-vacsora, 4-nasi, 5-egyeb 
 	int resource_category; //0-feherjeforras, 1-szenhidratforras, 2-vegyes, 3-zoldseg, 4-gyumolcs, 5-egyeb
 	
-	public Food(int iD, String name, int unit, double quantity, double fat,
+	public Food(long iD, String name, int unit, double quantity, double fat,
 			double sugar, double energy, double carbohidrate, double protein, int daily_category,
 			int resource_category) {
 		super();
@@ -29,6 +29,23 @@ public class Food {
 		this.daily_category = daily_category;
 		this.resource_category = resource_category;
 	}
+	
+	public Food(String name, int unit, double quantity, double fat,
+			double sugar, double energy, double carbohidrate, double protein, int daily_category,
+			int resource_category) {
+		super();
+		this.name = name;
+		this.unit = unit;
+		this.quantity = quantity;
+		this.fat = fat;
+		this.sugar = sugar;
+		this.energy = energy;
+		this.carbohidrate = carbohidrate;
+		this.protein = protein;
+		this.daily_category = daily_category;
+		this.resource_category = resource_category;
+	}
+	
 	public Food() {}
 	
 	public String getName() {
@@ -93,9 +110,14 @@ public class Food {
 	public void setResource_category(int resource_category) {
 		this.resource_category = resource_category;
 	}
-	public int getID() {
+	public long getID() {
 		return ID;
 	}
+	
+	public void setID(long id) {
+		this.ID = id;
+	}
+	
 	@Override
 	public String toString() {
 		return "Food [ID=" + ID + ", name=" + name + ", unit=" + unit

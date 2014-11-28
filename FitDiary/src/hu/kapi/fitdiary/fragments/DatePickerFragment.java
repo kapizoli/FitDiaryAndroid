@@ -1,9 +1,9 @@
 package hu.kapi.fitdiary.fragments;
 
 import hu.kapi.fitdiary.activites.RegistrationActivity;
+import hu.kapi.fitdiary.communicators.DatePickerCommunicator;
 
 import java.util.Calendar;
-
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -11,8 +11,6 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
-import android.util.Log;
-import android.widget.Button;
 import android.widget.DatePicker;
 
 public class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
@@ -52,7 +50,6 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
             return datepicker;
 
         try {
-
             if (communicator instanceof RegistrationActivity) {
                 datepicker.getDatePicker().setMaxDate(System.currentTimeMillis() + 1000 * 1);
             }

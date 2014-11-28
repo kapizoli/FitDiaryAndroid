@@ -1,7 +1,7 @@
 package hu.kapi.fitdiary.activites;
 
 import hu.kapi.fitdiary.R;
-import hu.kapi.fitdiary.fragments.DatePickerCommunicator;
+import hu.kapi.fitdiary.communicators.DatePickerCommunicator;
 import hu.kapi.fitdiary.fragments.DatePickerFragment;
 import hu.kapi.fitdiary.model.User;
 import hu.kapi.fitdiary.util.ErrorToast;
@@ -24,7 +24,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-public class RegistrationActivity extends android.support.v4.app.FragmentActivity implements DatePickerCommunicator {
+public class RegistrationActivity extends
+		android.support.v4.app.FragmentActivity implements
+		DatePickerCommunicator {
 	Button doneBtn, undoBtn;
 	EditText name, password, confirmPassword, email, birthday;
 	Spinner sex;
@@ -50,13 +52,10 @@ public class RegistrationActivity extends android.support.v4.app.FragmentActivit
 						|| "".equals(password.getText().toString())
 						|| "".equals(confirmPassword.getText().toString())
 						|| "".equals(email.getText().toString())
-						|| "".equals(birthday.getText().toString())
-					) {
+						|| "".equals(birthday.getText().toString())) {
 
-					new ErrorToast(
-							RegistrationActivity.this,
-							"Minden mező kitöltése kötelező!")
-							.show();
+					new ErrorToast(RegistrationActivity.this,
+							"Minden mező kitöltése kötelező!").show();
 				} else if ((password.getText().toString())
 						.equals(confirmPassword.getText().toString())) {
 					if (isEmailValid(email.getText().toString())) {
@@ -66,13 +65,13 @@ public class RegistrationActivity extends android.support.v4.app.FragmentActivit
 							public void run() {
 								int sexInt;
 								String male = getString(R.string.male);
-								if ( (sex.getSelectedItem().toString()).equalsIgnoreCase(male) ){
+								if ((sex.getSelectedItem().toString())
+										.equalsIgnoreCase(male)) {
 									sexInt = 0;
-								}
-								else {
+								} else {
 									sexInt = 1;
 								}
-								
+
 								Activity a = RegistrationActivity.this;
 								try {
 									actualUser = Session
@@ -80,15 +79,17 @@ public class RegistrationActivity extends android.support.v4.app.FragmentActivit
 											.getActualCommunication()
 											.registerANewUser(
 													name.getText().toString(),
-													password.getText().toString(),
+													password.getText()
+															.toString(),
 													email.getText().toString(),
 													sexInt,
-													birthday.getText().toString());
+													birthday.getText()
+															.toString());
 								} catch (ParseException e) {
 									// TODO Auto-generated catch block
 									e.printStackTrace();
-								} 
-								
+								}
+
 								if (actualUser != null) {
 									Session.getInstance().setActualUser(
 											actualUser);
@@ -110,8 +111,7 @@ public class RegistrationActivity extends android.support.v4.app.FragmentActivit
 													RegistrationActivity.this,
 													"A megadott email cím már használatban van!")
 													.show();
-										}
-										else {
+										} else {
 											Intent newIntent = new Intent(
 													RegistrationActivity.this,
 													SecondActivity.class);
@@ -136,17 +136,13 @@ public class RegistrationActivity extends android.support.v4.app.FragmentActivit
 										false);
 						new NetThread(RegistrationActivity.this, r).start();
 					} else {
-						new ErrorToast(
-								RegistrationActivity.this,
-								"Nem megfelelő email cím!")
-								.show();
+						new ErrorToast(RegistrationActivity.this,
+								"Nem megfelelő email cím!").show();
 					}
 				} else {
 
-					new ErrorToast(
-							RegistrationActivity.this,
-							"A megadott jelszavak nem egyeznek!")
-							.show();
+					new ErrorToast(RegistrationActivity.this,
+							"A megadott jelszavak nem egyeznek!").show();
 				}
 			}
 		});
@@ -161,33 +157,28 @@ public class RegistrationActivity extends android.support.v4.app.FragmentActivit
 			}
 		});
 	}
-	
+
 	public void showPicker(View v) {
 		DialogFragment datepicker = new DatePickerFragment();
-        datepicker.show(getSupportFragmentManager(), "timePicker");
+		datepicker.show(getSupportFragmentManager(), "datePicker");
 	}
-	
-	
-	
+
 	public static boolean isEmailValid(String email) {
-        boolean isValid = false;
+		boolean isValid = false;
 
-        String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
-        CharSequence inputStr = email;
+		String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
+		CharSequence inputStr = email;
 
-        Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
-        Matcher matcher = pattern.matcher(inputStr);
-        if (matcher.matches()) {
-            isValid = true;
-        }
-        return isValid;
-    }
+		Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
+		Matcher matcher = pattern.matcher(inputStr);
+		if (matcher.matches()) {
+			isValid = true;
+		}
+		return isValid;
+	}
 
 	@Override
 	public void onDatePicked(String date) {
 		birthday.setText(date);
-		
-		SimpleDateFormat dateformat2 = new SimpleDateFormat(
-	             "yyyy-MM-dd");
 	}
 }
