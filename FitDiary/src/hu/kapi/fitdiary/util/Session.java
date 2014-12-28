@@ -109,4 +109,46 @@ public class Session {
 		this.foodPlanList = foodPlanList;
 	}
 	
+	//0-g, 1-mg, 2-l, 3-dl, 4-cl, 5-ml, 6-db 
+	public String getUnitByInt(int i){
+		switch (i) {
+		case 0:
+			return "g";
+		case 1:
+			return "mg";
+		case 2:
+			return "l";
+		case 3:
+			return "dl";
+		case 4:
+			return "cl";
+		case 5:
+			return "ml";
+		case 6:
+			return "db";
+		default:
+			return "n/a";
+		}
+	}
+	
+	//0-g, 1-mg, 2-l, 3-dl, 4-cl, 5-ml, 6-db 
+		public int getIntByUnitString(String s){
+			if (s.equalsIgnoreCase("g")) {
+				return 0;
+			} else if (s.equalsIgnoreCase("mg")) {
+				return 1;
+			} else if (s.equalsIgnoreCase("l")) {
+				return 2;
+			} else if (s.equalsIgnoreCase("dl")) {
+				return 3;
+			} else if (s.equalsIgnoreCase("cl")) {
+				return 4;
+			} else if (s.equalsIgnoreCase("ml")) {
+				return 5;
+			} else if (s.equalsIgnoreCase("db")){
+				return 6;
+			} else {
+				return 0;
+			}
+		}
 }

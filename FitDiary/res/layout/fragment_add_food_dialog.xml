@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    
+
     <TextView
         android:id="@+id/add_food_dialog_title"
         android:layout_width="match_parent"
@@ -15,26 +15,26 @@
         android:textStyle="bold" />
 
     <LinearLayout
+        android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
         android:weightSum="2" >
 
         <Button
             android:id="@+id/add_food_dialog_cancel_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mégsem"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:text="Mégsem" />
 
         <Button
             android:id="@+id/add_food_dialog_save_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mentés"
-            android:layout_weight="1" />
-
+            android:layout_weight="1"
+            android:text="Mentés" />
     </LinearLayout>
 
     <View
@@ -44,14 +44,176 @@
         android:layout_alignParentLeft="true"
         android:background="#2E9AFE" />
 
-    <TextView
-        android:id="@+id/textView1"
+    <EditText
+        android:id="@+id/add_food_dialog_name_et"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/add_food_dialog_title"
         android:layout_marginLeft="21dp"
         android:layout_marginTop="21dp"
-        android:text="TextView" />
+        android:layout_toLeftOf="@+id/add_food_dialog_search_button"
+        android:hint="Étel neve" />
+
+    <TextView
+        android:id="@+id/add_food_dialog_fat_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/add_food_dialog_unit_tv"
+        android:layout_below="@+id/add_food_dialog_unit_tv"
+        android:layout_marginTop="40dp"
+        android:text="Zsír" />
+
+    <Button
+        android:id="@+id/add_food_dialog_search_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/add_food_dialog_name_et"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:text="Search" />
+
+    <TextView
+        android:id="@+id/add_food_dialog_unit_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/add_food_dialog_name_et"
+        android:layout_below="@+id/add_food_dialog_name_et"
+        android:layout_marginTop="16dp"
+        android:text="Egység" />
+
+    <EditText
+        android:id="@+id/add_food_dialog_unit_et"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/add_food_dialog_fat_tv"
+        android:layout_below="@+id/add_food_dialog_unit_tv"
+        android:ems="6" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/add_food_dialog_quantity_et"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/add_food_dialog_search_button"
+        android:layout_below="@+id/add_food_dialog_quantity_tv"
+        android:ems="6" />
+
+    <TextView
+        android:id="@+id/add_food_dialog_quantity_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/add_food_dialog_unit_et"
+        android:layout_alignLeft="@+id/add_food_dialog_quantity_et"
+        android:text="Mennyiség" />
+
+    <EditText
+        android:id="@+id/add_food_dialog_fat_et"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/add_food_dialog_fat_tv"
+        android:layout_below="@+id/add_food_dialog_fat_tv"
+        android:ems="6" />
+
+    <TextView
+        android:id="@+id/add_food_dialog_sugar_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/add_food_dialog_fat_et"
+        android:layout_alignLeft="@+id/add_food_dialog_quantity_et"
+        android:text="Cukor" />
+
+    <EditText
+        android:id="@+id/add_food_dialog_sugar_et"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/add_food_dialog_fat_et"
+        android:layout_alignBottom="@+id/add_food_dialog_fat_et"
+        android:layout_alignLeft="@+id/add_food_dialog_sugar_tv"
+        android:ems="6" />
+
+    <TextView
+        android:id="@+id/add_food_dialog_calorie_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/add_food_dialog_unit_tv"
+        android:layout_below="@+id/add_food_dialog_fat_et"
+        android:text="Kalória" />
+
+    <EditText
+        android:id="@+id/add_food_dialog_calorie_et"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/add_food_dialog_calorie_tv"
+        android:layout_below="@+id/add_food_dialog_calorie_tv"
+        android:ems="6" />
+
+    <TextView
+        android:id="@+id/add_food_dialog_carbohidrate_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/add_food_dialog_calorie_et"
+        android:layout_alignRight="@+id/add_food_dialog_quantity_tv"
+        android:text="Szénhidrát" />
+
+    <EditText
+        android:id="@+id/add_food_dialog_carbohidrate_et"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/add_food_dialog_carbohidrate_tv"
+        android:layout_below="@+id/add_food_dialog_carbohidrate_tv"
+        android:ems="6" />
+
+    <TextView
+        android:id="@+id/add_food_dialog_protein_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/add_food_dialog_calorie_et"
+        android:layout_below="@+id/add_food_dialog_calorie_et"
+        android:text="Fehérje" />
+
+    <EditText
+        android:id="@+id/add_food_dialog_protein_et"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/add_food_dialog_protein_tv"
+        android:layout_below="@+id/add_food_dialog_protein_tv"
+        android:ems="6" />
+
+    <TextView
+        android:id="@+id/add_food_dialog_daily_category_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/add_food_dialog_protein_et"
+        android:layout_alignLeft="@+id/add_food_dialog_carbohidrate_et"
+        android:text="Napi kategória" />
+
+    <EditText
+        android:id="@+id/add_food_dialog_daily_category_et"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/add_food_dialog_protein_et"
+        android:layout_alignBottom="@+id/add_food_dialog_protein_et"
+        android:layout_alignLeft="@+id/add_food_dialog_daily_category_tv"
+        android:ems="6" />
+
+    <TextView
+        android:id="@+id/add_food_dialog_resource_category_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/add_food_dialog_protein_et"
+        android:layout_below="@+id/add_food_dialog_protein_et"
+        android:text="Tápanyag forrás kategória" />
+
+    <EditText
+        android:id="@+id/add_food_dialog_resource_category_et"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/add_food_dialog_fat_et"
+        android:layout_alignRight="@+id/add_food_dialog_daily_category_et"
+        android:layout_below="@+id/add_food_dialog_resource_category_tv"
+        android:ems="6" />
 
 </RelativeLayout>

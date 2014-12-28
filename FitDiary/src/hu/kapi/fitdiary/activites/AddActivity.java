@@ -2,7 +2,7 @@ package hu.kapi.fitdiary.activites;
 
 import hu.kapi.fitdiary.R;
 import hu.kapi.fitdiary.communicators.DatePickerCommunicator;
-import hu.kapi.fitdiary.communicators.SetFoodCommunicator;
+import hu.kapi.fitdiary.communicators.FoodCommunicator;
 import hu.kapi.fitdiary.communicators.TimePickerCommunicator;
 import hu.kapi.fitdiary.fragments.AddFoodDialog;
 import hu.kapi.fitdiary.fragments.AddFoodFragment;
@@ -29,7 +29,7 @@ import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.MenuItem;
 
 public class AddActivity extends SherlockFragmentActivity implements
-		DatePickerCommunicator, TimePickerCommunicator,SetFoodCommunicator {
+		DatePickerCommunicator, TimePickerCommunicator,FoodCommunicator {
 	public Fragment fragment;
 
 	@Override

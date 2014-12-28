@@ -25,7 +25,8 @@ public class FoodItem extends LinearLayout {
 	TextView bodyCalorieNumberTv, bodyFatNumberTv, bodyCarbohydrateNumberTv, bodyProteinNumberTv;
 	LayoutParams params;
 	Context mContext;
-	int	position;
+	public int	position;
+	public Food mFood;
 
 	public FoodItem(Context context) {
 		super(context);
@@ -169,7 +170,6 @@ public class FoodItem extends LinearLayout {
 			                            
 			                            break;
 			                        case 2:
-			                            
 			                            break;
 			                        default: break;
 			                    }
@@ -187,6 +187,7 @@ public class FoodItem extends LinearLayout {
 
 	public void setTexts(Food f, int p){
 		position = p;
+		mFood = f;
 		if (f.getName() == null || "".equalsIgnoreCase(f.getName()) || " ".equalsIgnoreCase(f.getName())) {
 			headerNameTv.setText("n/a");
 		} else {
